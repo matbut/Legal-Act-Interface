@@ -3,16 +3,9 @@ package agh.inf.polab;
 public enum EditorialUnit implements IActUnit {
     Root,            // ustawa
     Article,        // artykuł
-    //Paragraph,      // paragraf
     Passagge,       // ustęp
     Point,          // punkt
     Letter;        // litera
-    //Indent,         // tiret
-    //DoubleIndent;   // podwójne tiret
-
-
-
-
 
     public String toTabulatedString() {
         String line="";
@@ -52,8 +45,6 @@ public enum EditorialUnit implements IActUnit {
                 return "Root";
             case Article:
                 return "Art\\. (\\p{Digit}+\\p{Lower}*)\\.";
-            //case Paragraph:
-            //    return "Paragraf";
             case Passagge:
                 //Ustęp oznacza się cyframi arabskimi z kropką bez nawiasu
                 return "(\\p{Digit}+\\p{Lower}*)\\.";
@@ -63,12 +54,7 @@ public enum EditorialUnit implements IActUnit {
             case Letter:
                 //Wyliczenie w obrębie punktów (tzw. litery) oznacza się małymi literami alfabetu łacińskiego,
                 //z wyłączeniem liter właściwych tylko językowi polskiemu (ą, ć, ę, ł, ń, ó, ś, ż, ź), z nawiasem z prawej strony
-                //return "Litera";
                 return "(\\p{Lower}{1,3})\\).";
-            //case Indent:
-            //    return "^-";
-            //case DoubleIndent:
-            //    return "";
             default:
                 return super.toString();
         }
@@ -105,14 +91,5 @@ public enum EditorialUnit implements IActUnit {
             return EditorialUnit.values()[(this.ordinal()+1)];
         else
             return null;
-    }
-
-
-    static EditorialUnit fromString(String inscription){
-        for(EditorialUnit EditUnit : EditorialUnit.values()){
-            if (inscription.equals(EditUnit.findRegex()))
-                return EditUnit;
-        }
-        return null;
     }
 }

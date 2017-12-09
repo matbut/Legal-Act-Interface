@@ -2,7 +2,6 @@ package agh.inf.polab;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,7 +12,6 @@ public class ActParser {
     public ActParser(String fileName) throws FileNotFoundException{
         scanner=new Scanner(new File(fileName)).useDelimiter(Pattern.compile(System.getProperty("line.separator")));
     }
-
 
     public boolean isEditorialUnit(String line){
         return matchesTo(line,EditorialUnit.values());
@@ -30,8 +28,8 @@ public class ActParser {
     }
 
     public boolean matchesTo(String line,IHasRegex[] collection) {
-        for(IHasRegex element: collection)
-            if(Pattern.matches(element.findRegex(),line))
+        for (IHasRegex element : collection)
+            if (Pattern.matches(element.findRegex(), line))
                 return true;
         return false;
     }
@@ -97,5 +95,4 @@ public class ActParser {
     public boolean endOfFile(){
         return !scanner.hasNextLine();
     }
-
 }
