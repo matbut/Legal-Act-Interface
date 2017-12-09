@@ -1,52 +1,71 @@
 package agh.inf.polab;
 
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class ActComponent{
 
-    public final EditorialUnit editUnitType;
-    public final String editUnitNum;
+    public final IdentifiedEditorialUnit id;
 
     private String content=null;
     private LinkedHashMap<String,ActComponent> lowers = new LinkedHashMap<>();
 
-    public ActComponent(EditorialUnit editUnitType, String editUnitNum){
-        this.editUnitType = editUnitType;
-        this.editUnitNum = editUnitNum;
+    public ActComponent(IdentifiedEditorialUnit id){
+        this.id = id;
     }
 
     public String getContent(){
         return this.content;
     }
-
-    public void PrintAll() {
-        System.out.println(this.editUnitType.toString()+this.editUnitNum);
-
-        if (this.getContent()!=null)
-            System.out.println(this.getContent());
-
-        for(ActComponent actComponent : lowers.values())
-            actComponent.PrintAll();
-    }
-    public void PrintTableOfContent(){
-        System.out.println(this.editUnitType.toTabulatedString()+this.editUnitNum);
-
-        for(ActComponent actComponent : lowers.values())
-            actComponent.PrintTableOfContent();
-    }
-
-    public void addChild(ActComponent p) {
-        lowers.put(p.editUnitNum,p);
-    }
-
-    public ActComponent removeChild(String key) {
-        return lowers.remove(key);
-    }
-
     public void addContent(String line) {
         if(this.content==null)
             this.content = line;
         else
             this.content=this.content+line;
     }
+    public void removeContent(){
+        this.content=null;
+    }
+
+    public ActComponent search(LinkedList<IdentifiedEditorialUnit> path){
+        if(this.lowers.containsKey(path.getFirst().editUnitNum)) {
+            ActComponent finded=this.lowers.get(path.getFirst().editUnitNum);
+            if (finded.id.equals(path.getFirst())) {
+                if (path.size()==1)
+                    return finded;
+                path.removeFirst();
+                return finded.search(path);
+            }
+        }
+        return null;
+    }
+
+    public void printAll() {
+        System.out.println(this.id.editUnitType.toTabulation() + this.id.editUnitType.toString()+this.id.editUnitNum);
+
+        if (this.getContent()!=null)
+            System.out.println(this.id.editUnitType.toTabulation() + getContent());
+
+        for(ActComponent actComponent : lowers.values())
+            actComponent.printAll();
+    }
+    public void printTableOfContent(){
+        if(this.id.editUnitType==EditorialUnit.Root || this.id.editUnitType==EditorialUnit.Section || this.id.editUnitType==EditorialUnit.Chapter) {
+            System.out.println(this.id.editUnitType.toTabulation() + this.id.toString());
+
+            if (this.getContent()!=null)
+                System.out.println(this.id.editUnitType.toTabulation() + getContent());
+
+            for (ActComponent actComponent : lowers.values())
+                actComponent.printTableOfContent();
+        }
+    }
+
+    public void addChild(ActComponent p) {
+        lowers.put(p.id.editUnitNum,p);
+    }
+    public ActComponent removeChild(String key) {
+        return lowers.remove(key);
+    }
+
+
 }

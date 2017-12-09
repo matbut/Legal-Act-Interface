@@ -6,7 +6,27 @@ import java.util.regex.Pattern;
 public enum DeletedExpr implements IHasRegex{
     sejm,
     data,
-    rubbish;
+    rubbish,
+    removedtext;
+
+    @Override
+    public String removeRegex() {
+        switch (this) {
+            case data:
+                return "^\\d{4}-\\d{2}-\\d{2}$";
+            case sejm:
+                return "^©Kancelaria Sejmu.*";
+            case rubbish:
+                return "^.?$";
+            case removedtext:
+                return "\\(pominięt.*\\)";
+            default:
+                return super.toString();
+        }
+    }
+
+    @Override
+    public String findRegex(){ return ".*"+removeRegex() + ".*";}
 
     /*
     public static boolean is(String line){
@@ -16,35 +36,4 @@ public enum DeletedExpr implements IHasRegex{
         return false;
     }
     */
-
-    @Override
-    public String findRegex() {
-        switch (this) {
-            case data:
-                return "^\\d{4}-\\d{2}-\\d{2}$";
-            case sejm:
-                return "^©Kancelaria Sejmu.*";
-            case rubbish:
-                return "^.?$";
-            default:
-                return super.toString();
-        }
-    }
-
-    @Override
-    public String removeRegex(){ return findRegex();}
-
-    @Override
-    public String toString() {
-        switch (this) {
-            case data:
-                return "YYYY-MM-DD";
-            case sejm:
-                return "©Kancelaria Sejmu";
-            case rubbish:
-                return "?";
-            default:
-                return super.toString();
-        }
-    }
 }

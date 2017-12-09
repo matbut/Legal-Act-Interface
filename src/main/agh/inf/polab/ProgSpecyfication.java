@@ -10,7 +10,7 @@ public class ProgSpecyfication {
     public ProgSpecyfication(String[] args) throws IllegalArgumentException{
         if(args.length==0) {
             System.out.println("Help: Allowed arguments:");
-            // spisu treści ustawy
+            // spis treści ustawy
             // spis treści działu o numerze
 
             // wyświetlanie specyficznych elementów składowych artykułu

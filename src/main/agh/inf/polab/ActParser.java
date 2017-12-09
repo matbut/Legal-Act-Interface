@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 public class ActParser {
     private Scanner scanner;
+    private Act act=new Act();
 
     public ActParser(String fileName) throws FileNotFoundException{
         scanner=new Scanner(new File(fileName)).useDelimiter(Pattern.compile(System.getProperty("line.separator")));
@@ -19,14 +20,9 @@ public class ActParser {
     public boolean isDeletedExpr(String line){
         return matchesTo(line,DeletedExpr.values());
     }
-    public boolean isNavigationUnit(String line){
-        return matchesTo(line,NavigationUnit.values());
-    }
-
     public boolean isText(String line) {
-        return !isEditorialUnit(line); // && !isNavigationUnit(line);
+        return !isEditorialUnit(line);
     }
-
     public boolean matchesTo(String line,IHasRegex[] collection) {
         for (IHasRegex element : collection)
             if (Pattern.matches(element.findRegex(), line))
@@ -34,11 +30,30 @@ public class ActParser {
         return false;
     }
 
-    public ActComponent parse(){
-        ActComponent root=new ActComponent(EditorialUnit.Root,"");
+    public Act parse(){
+
+        parseFirstLines();
+
+        ActComponent root=new ActComponent(new IdentifiedEditorialUnit(EditorialUnit.Root,""));
         SearchUnit(root,getPreParsedLine());
 
-        return root;
+        act.addComponents(root);
+
+        act.addPreable(root.getContent());
+        root.removeContent();
+
+        return act;
+    }
+
+    public void parseFirstLines() {
+        String line=getPreParsedLine();
+        if( Pattern.matches("Dz\\.U\\. \\d{4} Nr \\d+ poz\\. \\d+.*",line))
+            act.setJournalOfLaws(line);
+        line="";
+
+        for(int i=0;i<3;i++){
+            line=line+"/n"+getPreParsedLine();
+        }
     }
 
     public String SearchUnit(ActComponent actComp,String line){
@@ -46,10 +61,17 @@ public class ActParser {
         line=getContent(actComp,line);
         line=FindUnits(actComp,line);
 
+        if(actComp.id.editUnitType==EditorialUnit.Article){
+            act.addArticle(actComp);
+        }
+
         return line;
     }
 
     public String getContent(ActComponent actComp,String line){
+
+        if(line.equals(""))
+            line=getPreParsedLine();
 
         while(!endOfFile() && isText(line)) {
             actComp.addContent(line);
@@ -63,21 +85,21 @@ public class ActParser {
 
     public String FindUnits(ActComponent actComp,String line){
 
-        if(actComp.editUnitType.lowers()!=null) {
-            for (EditorialUnit findingUnit : actComp.editUnitType.lowers()) {
+        if(actComp.id.editUnitType.lowers()!=null) {
+            for (EditorialUnit findingUnit : actComp.id.editUnitType.lowers()) {
                 Pattern p = Pattern.compile(findingUnit.findRegex());
                 Matcher m = p.matcher(line);
 
                 while (m.matches()) {
-                    String unitNum = m.group(1);
 
-                    line = line.replaceFirst(findingUnit.removeRegex() + " ", "");
-                    line = line.replaceFirst(findingUnit.removeRegex(), "");
+                    line = line.replaceFirst(findingUnit.removeRegex(),"");
 
-                    ActComponent newActComp = new ActComponent(findingUnit, unitNum);
+                    IdentifiedEditorialUnit id=new IdentifiedEditorialUnit(findingUnit,m.group("id"));
+
+                    ActComponent newActComp = new ActComponent(id);
                     actComp.addChild(newActComp);
 
-                    line = this.SearchUnit(newActComp, line);
+                    line = this.SearchUnit(newActComp,line);
                     m = p.matcher(line);
                 }
             }
@@ -89,6 +111,8 @@ public class ActParser {
         String line = scanner.nextLine();
         while(!endOfFile() && isDeletedExpr(line))
             line = scanner.nextLine();
+        if (Pattern.matches(".*-$",line))
+            line.replaceFirst("-$","");
         return line;
     }
 
