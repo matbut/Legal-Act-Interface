@@ -1,10 +1,12 @@
 package agh.inf.polab;
 
+
 public enum EditorialUnit implements IHasRegex{
     Root,           //
 
     Section,        // dział
     Chapter,        // rozdział
+    Branch,         // oddział
     Article,        // artykuł
     Passagge,       // ustęp
     Point,          // punkt
@@ -23,9 +25,11 @@ public enum EditorialUnit implements IHasRegex{
             case Root:
                 return "";
             case Section:
-                return "Dział ";
+                return "dział ";
             case Chapter:
-                return "Rozdział ";
+                return "rozdział ";
+            case Branch:
+                return "oddział ";
             case Article:
                 return "art. ";
             case Passagge:
@@ -48,6 +52,8 @@ public enum EditorialUnit implements IHasRegex{
                 return "^DZIAŁ (?<id>\\d*\\p{Alpha}*)";
             case Chapter:
                 return "^Rozdział (?<id>\\d*\\p{Alpha}*)";
+            case Branch:
+                return "(?!DZIAŁ .*\\b)(?<id>[A-ZĘÓĄŚŁŻŹĆŃ ,]{5,})";
             case Article:
                 return "Art\\. (?<id>\\d+\\p{Lower}*)\\. *";
             case Passagge:
@@ -67,6 +73,8 @@ public enum EditorialUnit implements IHasRegex{
 
     @Override
     public String findRegex(){
+        if (this==Branch)
+            return this.removeRegex();
         return "^"+this.removeRegex()+".*";
     }
 
@@ -85,6 +93,10 @@ public enum EditorialUnit implements IHasRegex{
             }
             case Section:{
                 EditorialUnit[] lowers = {Chapter,Article};
+                return lowers;
+            }
+            case Chapter:{
+                EditorialUnit[] lowers = {Branch,Article};
                 return lowers;
             }
             case Article:{

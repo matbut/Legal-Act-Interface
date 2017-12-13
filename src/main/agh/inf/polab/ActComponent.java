@@ -27,16 +27,18 @@ public class ActComponent{
     }
 
     public ActComponent search(LinkedList<IdentifiedEditorialUnit> path){
+
         if(this.lowers.containsKey(path.getFirst().editUnitNum)) {
             ActComponent finded=this.lowers.get(path.getFirst().editUnitNum);
             if (finded.id.equals(path.getFirst())) {
-                if (path.size()==1)
-                    return finded;
                 path.removeFirst();
+                if (path.size()==0)
+                    return finded;
                 return finded.search(path);
             }
         }
         return null;
+
     }
 
     public void printAll() {
@@ -49,7 +51,8 @@ public class ActComponent{
             actComponent.printAll();
     }
     public void printTableOfContent(){
-        if(this.id.editUnitType==EditorialUnit.Root || this.id.editUnitType==EditorialUnit.Section || this.id.editUnitType==EditorialUnit.Chapter) {
+        if(this.id.editUnitType==EditorialUnit.Root || this.id.editUnitType==EditorialUnit.Section
+                || this.id.editUnitType==EditorialUnit.Chapter || this.id.editUnitType==EditorialUnit.Branch) {
             System.out.println(this.id.editUnitType.toTabulation() + this.id.toString());
 
             if (this.getContent()!=null)
