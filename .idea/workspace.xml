@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="300d9a0a-10f0-428b-99a0-b565014fa09b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/Act.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/Act.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java" />
@@ -20,63 +21,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ActComponent.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-              <folding>
-                <element signature="method#addContent#0;class#ActComponent#0" expanded="false" />
-                <element signature="method#printAll#0;class#ActComponent#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ActParser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1820">
-              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#ActParser#0;class#ActParser#0" expanded="false" />
-                <element signature="e#584#585#0" expanded="true" />
-                <element signature="e#645#646#0" expanded="true" />
-                <element signature="method#matchesTo#0;class#ActParser#0" expanded="false" />
-                <element signature="method#parseFirstLines#0;class#ActParser#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EditorialUnit.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
-              <folding>
-                <element signature="method#higher#0;class#EditorialUnit#0" expanded="false" />
-                <element signature="method#lower#0;class#EditorialUnit#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -126,11 +71,11 @@
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/DeletedExpr.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/DefiniteEditorialUnit.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Act.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Main.java" />
       </list>
     </option>
   </component>
@@ -421,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512857383174</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="New Editorial Unit (Branch) was added, so parser was changed">
+      <created>1513162201084</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1513162201085</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -458,21 +410,21 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="202" y="444" width="1849" height="1089" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3302564" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32955715" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1315647" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17379534" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -483,7 +435,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -495,19 +446,12 @@
     <MESSAGE value="New classes added." />
     <MESSAGE value="No important changes" />
     <MESSAGE value="Searching added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Searching added" />
+    <MESSAGE value="New Editorial Unit (Branch) was added, so parser was changed" />
+    <option name="LAST_COMMIT_MESSAGE" value="New Editorial Unit (Branch) was added, so parser was changed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java</url>
-          <line>54</line>
-          <properties />
-          <option name="timeStamp" value="42" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="44" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -518,6 +462,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="method#addContent#0;class#ActComponent#0" expanded="false" />
+            <element signature="method#search#0;class#ActComponent#0" expanded="false" />
             <element signature="method#printAll#0;class#ActComponent#0" expanded="false" />
           </folding>
         </state>
@@ -530,10 +475,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ActParser#0;class#ActParser#0" expanded="false" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
             <element signature="method#matchesTo#0;class#ActParser#0" expanded="false" />
             <element signature="method#parseFirstLines#0;class#ActParser#0" expanded="false" />
+            <element signature="method#SearchUnit#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getContent#0;class#ActParser#0" expanded="false" />
+            <element signature="method#FindUnits#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getPreParsedLine#0;class#ActParser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -544,15 +491,15 @@
           <caret line="47" column="65" lean-forward="false" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#697#698#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
             <element signature="method#addPreable#0;class#Act#0" expanded="false" />
-            <element signature="e#1114#1115#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="true" />
+            <element signature="e#1286#1287#0" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+            <element signature="e#1405#1406#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -584,6 +531,7 @@
           <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
             <element signature="method#addContent#0;class#ActComponent#0" expanded="false" />
+            <element signature="method#search#0;class#ActComponent#0" expanded="false" />
             <element signature="method#printAll#0;class#ActComponent#0" expanded="false" />
           </folding>
         </state>
@@ -595,15 +543,15 @@
           <caret line="47" column="65" lean-forward="false" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#697#698#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
             <element signature="method#addPreable#0;class#Act#0" expanded="false" />
-            <element signature="e#1114#1115#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="true" />
+            <element signature="e#1286#1287#0" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+            <element signature="e#1405#1406#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -636,10 +584,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ActParser#0;class#ActParser#0" expanded="false" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
             <element signature="method#matchesTo#0;class#ActParser#0" expanded="false" />
             <element signature="method#parseFirstLines#0;class#ActParser#0" expanded="false" />
+            <element signature="method#SearchUnit#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getContent#0;class#ActParser#0" expanded="false" />
+            <element signature="method#FindUnits#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getPreParsedLine#0;class#ActParser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -650,6 +600,7 @@
           <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
             <element signature="method#addContent#0;class#ActComponent#0" expanded="false" />
+            <element signature="method#search#0;class#ActComponent#0" expanded="false" />
             <element signature="method#printAll#0;class#ActComponent#0" expanded="false" />
           </folding>
         </state>
@@ -661,15 +612,15 @@
           <caret line="47" column="65" lean-forward="false" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#625#626#0" expanded="true" />
+            <element signature="e#697#698#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#811#812#0" expanded="true" />
             <element signature="method#addPreable#0;class#Act#0" expanded="false" />
-            <element signature="e#1114#1115#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
+            <element signature="e#1244#1245#0" expanded="true" />
+            <element signature="e#1286#1287#0" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+            <element signature="e#1405#1406#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -702,10 +653,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ActParser#0;class#ActParser#0" expanded="false" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
             <element signature="method#matchesTo#0;class#ActParser#0" expanded="false" />
             <element signature="method#parseFirstLines#0;class#ActParser#0" expanded="false" />
+            <element signature="method#SearchUnit#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getContent#0;class#ActParser#0" expanded="false" />
+            <element signature="method#FindUnits#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getPreParsedLine#0;class#ActParser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -716,6 +669,7 @@
           <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
           <folding>
             <element signature="method#addContent#0;class#ActComponent#0" expanded="false" />
+            <element signature="method#search#0;class#ActComponent#0" expanded="false" />
             <element signature="method#printAll#0;class#ActComponent#0" expanded="false" />
           </folding>
         </state>
@@ -728,10 +682,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ActParser#0;class#ActParser#0" expanded="false" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
             <element signature="method#matchesTo#0;class#ActParser#0" expanded="false" />
             <element signature="method#parseFirstLines#0;class#ActParser#0" expanded="false" />
+            <element signature="method#SearchUnit#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getContent#0;class#ActParser#0" expanded="false" />
+            <element signature="method#FindUnits#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getPreParsedLine#0;class#ActParser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -757,7 +713,12 @@
         <state relative-caret-position="1332">
           <caret line="97" column="24" lean-forward="false" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
           <folding>
+            <element signature="method#toTabulation#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#toString#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#removeRegex#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#findRegex#0;class#EditorialUnit#0" expanded="false" />
             <element signature="method#higher#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#lowers#0;class#EditorialUnit#0" expanded="false" />
             <element signature="method#lower#0;class#EditorialUnit#0" expanded="false" />
           </folding>
         </state>
@@ -779,6 +740,7 @@
           <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
             <element signature="method#addContent#0;class#ActComponent#0" expanded="false" />
+            <element signature="method#search#0;class#ActComponent#0" expanded="false" />
             <element signature="method#printAll#0;class#ActComponent#0" expanded="false" />
           </folding>
         </state>
@@ -789,7 +751,12 @@
         <state relative-caret-position="882">
           <caret line="70" column="28" lean-forward="true" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
           <folding>
+            <element signature="method#toTabulation#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#toString#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#removeRegex#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#findRegex#0;class#EditorialUnit#0" expanded="false" />
             <element signature="method#higher#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#lowers#0;class#EditorialUnit#0" expanded="false" />
             <element signature="method#lower#0;class#EditorialUnit#0" expanded="false" />
           </folding>
         </state>
@@ -813,6 +780,7 @@
           <caret line="56" column="28" lean-forward="false" selection-start-line="56" selection-start-column="28" selection-end-line="56" selection-end-column="28" />
           <folding>
             <element signature="method#addContent#0;class#ActComponent#0" expanded="false" />
+            <element signature="method#search#0;class#ActComponent#0" expanded="false" />
             <element signature="method#printAll#0;class#ActComponent#0" expanded="false" />
           </folding>
         </state>
@@ -825,10 +793,12 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ActParser#0;class#ActParser#0" expanded="false" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
             <element signature="method#matchesTo#0;class#ActParser#0" expanded="false" />
             <element signature="method#parseFirstLines#0;class#ActParser#0" expanded="false" />
+            <element signature="method#SearchUnit#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getContent#0;class#ActParser#0" expanded="false" />
+            <element signature="method#FindUnits#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getPreParsedLine#0;class#ActParser#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -848,7 +818,12 @@
         <state relative-caret-position="72">
           <caret line="6" column="60" lean-forward="false" selection-start-line="6" selection-start-column="60" selection-end-line="6" selection-end-column="60" />
           <folding>
+            <element signature="method#toTabulation#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#toString#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#removeRegex#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#findRegex#0;class#EditorialUnit#0" expanded="false" />
             <element signature="method#higher#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#lowers#0;class#EditorialUnit#0" expanded="false" />
             <element signature="method#lower#0;class#EditorialUnit#0" expanded="false" />
           </folding>
         </state>
@@ -898,17 +873,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IHasRegex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#133#134#0" expanded="false" />
-            <element signature="e#160#161#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/NavigationUnit.java" />
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IActUnit.java" />
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ProgSpecyfication.java">
@@ -930,25 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Act.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="47" column="65" lean-forward="false" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#822#823#0" expanded="true" />
-            <element signature="e#850#851#0" expanded="true" />
-            <element signature="e#889#890#0" expanded="true" />
-            <element signature="method#addPreable#0;class#Act#0" expanded="false" />
-            <element signature="e#1114#1115#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1275#1276#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -960,49 +905,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#printTitle#0;class#Act#0" expanded="false" />
+            <element signature="method#printPreamble#0;class#Act#0" expanded="false" />
+            <element signature="method#addPreable#0;class#Act#0" expanded="false" />
+            <element signature="e#1361#1362#0" expanded="true" />
+            <element signature="e#1405#1406#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="320">
+          <caret line="43" column="18" lean-forward="true" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
           <folding>
             <element signature="method#addContent#0;class#ActComponent#0" expanded="false" />
+            <element signature="method#search#0;class#ActComponent#0" expanded="false" />
             <element signature="method#printAll#0;class#ActComponent#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IHasRegex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="40">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1820">
-          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+        <state relative-caret-position="243">
+          <caret line="53" column="34" lean-forward="false" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#ActParser#0;class#ActParser#0" expanded="false" />
-            <element signature="e#584#585#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
             <element signature="method#matchesTo#0;class#ActParser#0" expanded="false" />
             <element signature="method#parseFirstLines#0;class#ActParser#0" expanded="false" />
+            <element signature="method#SearchUnit#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getContent#0;class#ActParser#0" expanded="false" />
+            <element signature="method#FindUnits#0;class#ActParser#0" expanded="false" />
+            <element signature="method#getPreParsedLine#0;class#ActParser#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="55" column="36" lean-forward="false" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+        <state relative-caret-position="485">
+          <caret line="117" column="0" lean-forward="true" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding>
+            <element signature="method#toTabulation#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#toString#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#removeRegex#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#findRegex#0;class#EditorialUnit#0" expanded="false" />
             <element signature="method#higher#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#lowers#0;class#EditorialUnit#0" expanded="false" />
             <element signature="method#lower#0;class#EditorialUnit#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

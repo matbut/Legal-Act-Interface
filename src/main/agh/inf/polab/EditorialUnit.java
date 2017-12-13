@@ -19,6 +19,10 @@ public enum EditorialUnit implements IHasRegex{
         return line;
     }
 
+    public boolean isInTableOfContent(){
+        return this.ordinal()<EditorialUnit.Article.ordinal();
+    }
+
     @Override
     public String toString() {
         switch (this) {

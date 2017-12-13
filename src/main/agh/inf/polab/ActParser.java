@@ -52,14 +52,16 @@ public class ActParser {
     }
 
     public void parseFirstLines() {
-        String line=getPreParsedLine();
-        if( Pattern.matches("Dz\\.U\\. \\d{4} Nr \\d+ poz\\. \\d+.*",line))
-            act.setJournalOfLaws(line);
-        line="";
+        String line="";
+        if(!endOfFile())
+            line=getPreParsedLine();
 
-        for(int i=0;i<3;i++){
-            line=line+"/n"+getPreParsedLine();
+        if(Pattern.matches("Dz\\.U\\. \\d{4} Nr \\d+ poz\\. \\d+.*",line) && !endOfFile()){
+            line=line+"\n"+getPreParsedLine();
         }
+        for(int i=0;i<2 && !endOfFile();i++)
+            line=line+"\n"+getPreParsedLine();
+        act.setTitle(line);
     }
 
     public String SearchUnit(ActComponent actComp,String line){

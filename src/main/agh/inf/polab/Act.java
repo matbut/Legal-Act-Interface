@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 public class Act {
 
-    private String journalOfLaws=null;
     private String title;
 
     //private LinkedHashMap<String,ActComponent> articles = new LinkedHashMap<>();
@@ -20,20 +19,28 @@ public class Act {
         this.actComponent=actComponent;
     }
 
-    public void setJournalOfLaws(String journalOfLaws) {
-        this.journalOfLaws = journalOfLaws;
-    }
-
     public void setTitle(String firstLines) {
         this.title = firstLines;
     }
 
     public void printTableOfContent(){
+        printTitle();
         actComponent.printTableOfContent();
     }
     public void printAll(){
+        printTitle();
+        printPreamble();
         actComponent.printAll();
     }
+    public void printTitle(){
+        if(title!=null)
+            System.out.println(title);
+    }
+    public void printPreamble(){
+        if(preamble!=null)
+            System.out.println(preamble);
+    }
+
     public void addPreable(String line) {
         if(this.preamble==null)
             this.preamble = line;

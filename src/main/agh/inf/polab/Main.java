@@ -12,18 +12,18 @@ public class Main {
 
             Act act = actParser.parse();
 
-            act.printTableOfContent();
-            act.printAll();
+            //act.printTableOfContent();
+            //act.printAll();
 
-            //LinkedList<IdentifiedEditorialUnit> path = new LinkedList<>();
-            //path.add(new IdentifiedEditorialUnit(EditorialUnit.Article,"228"));
-            //path.add(new IdentifiedEditorialUnit(EditorialUnit.Passagge,"4"));
+            LinkedList<IdentifiedEditorialUnit> path = new LinkedList<>();
+            path.add(new IdentifiedEditorialUnit(EditorialUnit.Article,"228"));
+            path.add(new IdentifiedEditorialUnit(EditorialUnit.Passagge,"4"));
 
-            //ActComponent actComponent=act.search(path);
-            //if(actComponent!=null)
-            //    actComponent.printAll();
-            //else
-            //    System.out.println("Nie ma takiego elementu w tej ustawie.");
+            ActComponent actComponent=act.search(path);
+            if(actComponent!=null)
+                actComponent.printAll();
+            else
+                System.out.println("Nie ma takiego elementu w tej ustawie.");
 
 
         }catch(FileNotFoundException  e){

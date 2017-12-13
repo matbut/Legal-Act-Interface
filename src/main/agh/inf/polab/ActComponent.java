@@ -51,8 +51,7 @@ public class ActComponent{
             actComponent.printAll();
     }
     public void printTableOfContent(){
-        if(this.id.editUnitType==EditorialUnit.Root || this.id.editUnitType==EditorialUnit.Section
-                || this.id.editUnitType==EditorialUnit.Chapter || this.id.editUnitType==EditorialUnit.Branch) {
+        if(this.id.editUnitType.isInTableOfContent()) {
             System.out.println(this.id.editUnitType.toTabulation() + this.id.toString());
 
             if (this.getContent()!=null)
