@@ -12,8 +12,8 @@ public class Main {
 
             Act act = actParser.parse();
 
-            //act.printTableOfContent();
-            //act.printAll();
+            act.printTableOfContent();
+            act.printAll();
 
             LinkedList<IdentifiedEditorialUnit> path = new LinkedList<>();
             path.add(new IdentifiedEditorialUnit(EditorialUnit.Article,"228"));

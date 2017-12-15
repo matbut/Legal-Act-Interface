@@ -11,44 +11,9 @@ import java.util.regex.Pattern;
 public class ActParser {
     private Scanner scanner;
     private Act act=new Act();
-    private boolean title=false;
 
     public ActParser(String fileName) throws FileNotFoundException{
         scanner=new Scanner(new File(fileName)).useDelimiter(Pattern.compile(System.getProperty("line.separator")));
-    }
-
-    public boolean isEditorialUnit(String line){
-        return matchesTo(line,EditorialUnit.values());
-    }
-    public boolean isDeletedExpr(String line){
-        return matchesTo(line,DeletedExpr.values());
-    }
-    public boolean isText(String line) {
-
-        return !isEditorialUnit(line);
-    }
-    public boolean matchesTo(String line,IHasRegex[] collection) {
-        for (IHasRegex element : collection)
-            if (Pattern.matches(element.findRegex(), line)) {
-
-                return true;
-            }
-        return false;
-    }
-
-    public Act parse() {
-
-        parseFirstLines();
-
-        ActComponent root=new ActComponent(new IdentifiedEditorialUnit(EditorialUnit.Root,""));
-        SearchUnit(root,getPreParsedLine());
-
-        act.addComponents(root);
-
-        act.addPreable(root.getContent());
-        root.removeContent();
-
-        return act;
     }
 
     public void parseFirstLines() {
@@ -63,6 +28,20 @@ public class ActParser {
             line=line+"\n"+getPreParsedLine();
         act.setTitle(line);
     }
+    public Act parse() {
+
+        parseFirstLines();
+
+        ActComponent root=new ActComponent(new IdentifiedEditorialUnit(EditorialUnit.Root,""));
+        SearchUnit(root,getPreParsedLine());
+
+        act.setRoot(root);
+
+        act.setPreable(root.getContent());
+        root.removeContent();
+
+        return act;
+    }
 
     public String SearchUnit(ActComponent actComp,String line){
 
@@ -75,7 +54,6 @@ public class ActParser {
 
         return line;
     }
-
     public String getContent(ActComponent actComp,String line){
 
         if(line.equals("") && !endOfFile())
@@ -90,19 +68,9 @@ public class ActParser {
             actComp.addContent(line);
         return line;
     }
-
     public String FindUnits(ActComponent actComp,String line){
 
         if(actComp.id.editUnitType.lowers()!=null) {
-
-
-
-            //EditorialUnit findingUnit=iterator.next();
-
-
-            //for (EditorialUnit findingUnit : actComp.id.editUnitType.lowers()) {
-
-
             boolean restart=true;
 
             while(restart) {
@@ -150,5 +118,23 @@ public class ActParser {
 
     public boolean endOfFile(){
         return !scanner.hasNextLine();
+    }
+    public boolean isEditorialUnit(String line){
+        return matchesTo(line,EditorialUnit.values());
+    }
+    public boolean isDeletedExpr(String line){
+        return matchesTo(line,DeletedExpr.values());
+    }
+    public boolean isText(String line) {
+
+        return !isEditorialUnit(line);
+    }
+    public boolean matchesTo(String line,IHasRegex[] collection) {
+        for (IHasRegex element : collection)
+            if (Pattern.matches(element.findRegex(), line)) {
+
+                return true;
+            }
+        return false;
     }
 }

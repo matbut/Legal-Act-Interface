@@ -1,36 +1,36 @@
 package agh.inf.polab;
 
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 public class Act {
 
-    private String title;
-
-    //private LinkedHashMap<String,ActComponent> articles = new LinkedHashMap<>();
-
-    private ActComponent articles=new ActComponent(new IdentifiedEditorialUnit(EditorialUnit.Root,""));
-
-    private ActComponent actComponent;
-
+    private String title=null;
     private String preamble=null;
 
-    public void addComponents(ActComponent actComponent){
-        this.actComponent=actComponent;
-    }
+    private ActComponent root =null;
+    private ActComponent articles=new ActComponent(new IdentifiedEditorialUnit(EditorialUnit.Root,""));
 
+    public void addArticle(ActComponent actComp) {
+        articles.addChild(actComp);
+    }
+    public void setRoot(ActComponent actComponent){
+        this.root =actComponent;
+    }
+    public void setPreable(String preable) {
+        this.preamble=preable;
+    }
     public void setTitle(String firstLines) {
         this.title = firstLines;
     }
 
     public void printTableOfContent(){
         printTitle();
-        actComponent.printTableOfContent();
+        root.printTableOfContent();
     }
     public void printAll(){
         printTitle();
         printPreamble();
-        actComponent.printAll();
+        root.printAll();
     }
     public void printTitle(){
         if(title!=null)
@@ -41,18 +41,8 @@ public class Act {
             System.out.println(preamble);
     }
 
-    public void addPreable(String line) {
-        if(this.preamble==null)
-            this.preamble = line;
-        else
-            this.preamble=this.preamble+line;
-    }
-
-    public void addArticle(ActComponent actComp) {
-        articles.addChild(actComp);
-    }
-
     public ActComponent search(LinkedList<IdentifiedEditorialUnit> path){
         return articles.search(path);
     }
+
 }
