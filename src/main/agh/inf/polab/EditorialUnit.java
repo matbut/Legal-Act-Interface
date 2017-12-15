@@ -1,24 +1,26 @@
 package agh.inf.polab;
 
-public enum EditorialUnit implements IActUnit {
-    Root,            // ustawa
+
+public enum EditorialUnit implements IHasRegex{
+    Root,           //
+
+    Section,        // dział
+    Chapter,        // rozdział
+    Branch,         // oddział
     Article,        // artykuł
-    //Paragraph,      // paragraf
     Passagge,       // ustęp
     Point,          // punkt
-    Letter;        // litera
-    //Indent,         // tiret
-    //DoubleIndent;   // podwójne tiret
+    Letter;         // litera
 
-
-
-
-
-    public String toTabulatedString() {
+    public String toTabulation() {
         String line="";
         for(int i=0;i<this.ordinal();i++)
             line=line+"  ";
-        return line+this.toString();
+        return line;
+    }
+
+    public boolean isInTableOfContent(){
+        return this.ordinal()<EditorialUnit.Article.ordinal();
     }
 
     @Override
@@ -26,20 +28,20 @@ public enum EditorialUnit implements IActUnit {
         switch (this) {
             case Root:
                 return "";
+            case Section:
+                return "dział ";
+            case Chapter:
+                return "rozdział ";
+            case Branch:
+                return "oddział ";
             case Article:
-                return "art. ";
-            //case Paragraph:
-            //    return "Paragraf";
+                return "art.";
             case Passagge:
-                return "ust. ";
+                return "ust.";
             case Point:
-                return "pkt. ";
+                return "pkt.";
             case Letter:
-                return "lit. ";
-            //case Indent:
-            //    return "tiret";
-            //case DoubleIndent:
-            //    return "podwójne tiret";
+                return "lit.";
             default:
                 return super.toString();
         }
@@ -49,26 +51,25 @@ public enum EditorialUnit implements IActUnit {
     public String removeRegex() {
         switch (this) {
             case Root:
-                return "Root";
+                return "Mateusz Buta";
+            case Section:
+                return "^DZIAŁ (?<id>\\d*\\p{Alpha}*)";
+            case Chapter:
+                return "^Rozdział (?<id>\\d*\\p{Alpha}*)";
+            case Branch:
+                return "(?!DZIAŁ .*\\b)(?<id>[A-ZĘÓĄŚŁŻŹĆŃ ,]{5,})";
             case Article:
-                return "Art\\. (\\p{Digit}+\\p{Lower}*)\\.";
-            //case Paragraph:
-            //    return "Paragraf";
+                return "Art\\. (?<id>\\d+\\p{Lower}*)\\. *";
             case Passagge:
                 //Ustęp oznacza się cyframi arabskimi z kropką bez nawiasu
-                return "(\\p{Digit}+\\p{Lower}*)\\.";
+                return "(?<id>\\d+\\p{Lower}*)\\. *";
             case Point:
                 //Punkt oznacza się cyframi arabskimi z nawiasem z prawej strony
-                return "(\\p{Digit}{1,2}?\\p{Lower}*)\\)";
+                return "(?<id>\\d+\\p{Lower}*)\\) +";
             case Letter:
                 //Wyliczenie w obrębie punktów (tzw. litery) oznacza się małymi literami alfabetu łacińskiego,
                 //z wyłączeniem liter właściwych tylko językowi polskiemu (ą, ć, ę, ł, ń, ó, ś, ż, ź), z nawiasem z prawej strony
-                //return "Litera";
-                return "(\\p{Lower}{1,3})\\).";
-            //case Indent:
-            //    return "^-";
-            //case DoubleIndent:
-            //    return "";
+                return "(?<id>\\p{Lower}+)\\) +";
             default:
                 return super.toString();
         }
@@ -76,10 +77,11 @@ public enum EditorialUnit implements IActUnit {
 
     @Override
     public String findRegex(){
+        if (this==Branch)
+            return this.removeRegex();
         return "^"+this.removeRegex()+".*";
     }
 
-    @Override
     public EditorialUnit higher(){
         if(this.ordinal() > 0 )
             return  EditorialUnit.values()[(this.ordinal()-1)];
@@ -88,31 +90,36 @@ public enum EditorialUnit implements IActUnit {
     }
 
     public EditorialUnit[] lowers(){
-        if(this!=Article) {
-            if(this.lower()==null){
-                return null;
+        switch (this){
+            case Root:{
+                EditorialUnit[] lowers = {Section,Chapter,Article};
+                return lowers;
             }
-            EditorialUnit[] lowers = {this.lower()};
-            return lowers;
+            case Section:{
+                EditorialUnit[] lowers = {Chapter,Article};
+                return lowers;
+            }
+            case Chapter:{
+                EditorialUnit[] lowers = {Branch,Article};
+                return lowers;
+            }
+            case Article:{
+                EditorialUnit[] lowers = {Passagge,Point};
+                return lowers;
+            }
+            case Letter:
+                return null;
+            default:{
+                EditorialUnit[] lowers = {lower()};
+                return lowers;
+            }
         }
-        EditorialUnit[] lowers = {EditorialUnit.Passagge,EditorialUnit.Point};
-        return lowers;
     }
 
-    @Override
     public EditorialUnit lower(){
         if (this.ordinal() < EditorialUnit.values().length-1)
             return EditorialUnit.values()[(this.ordinal()+1)];
         else
             return null;
-    }
-
-
-    static EditorialUnit fromString(String inscription){
-        for(EditorialUnit EditUnit : EditorialUnit.values()){
-            if (inscription.equals(EditUnit.findRegex()))
-                return EditUnit;
-        }
-        return null;
     }
 }

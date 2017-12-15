@@ -1,52 +1,66 @@
 package agh.inf.polab;
 
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class ActComponent{
 
-    public final EditorialUnit editUnitType;
-    public final String editUnitNum;
+    public final IdentifiedEditorialUnit id;
 
     private String content=null;
     private LinkedHashMap<String,ActComponent> lowers = new LinkedHashMap<>();
 
-    public ActComponent(EditorialUnit editUnitType, String editUnitNum){
-        this.editUnitType = editUnitType;
-        this.editUnitNum = editUnitNum;
-    }
-
-    public String getContent(){
-        return this.content;
-    }
-
-    public void PrintAll() {
-        System.out.println(this.editUnitType.toString()+this.editUnitNum);
-
-        if (this.getContent()!=null)
-            System.out.println(this.getContent());
-
-        for(ActComponent actComponent : lowers.values())
-            actComponent.PrintAll();
-    }
-    public void PrintTableOfContent(){
-        System.out.println(this.editUnitType.toTabulatedString()+this.editUnitNum);
-
-        for(ActComponent actComponent : lowers.values())
-            actComponent.PrintTableOfContent();
+    public ActComponent(IdentifiedEditorialUnit id){
+        this.id = id;
     }
 
     public void addChild(ActComponent p) {
-        lowers.put(p.editUnitNum,p);
+        lowers.put(p.id.editUnitNum,p);
     }
 
-    public ActComponent removeChild(String key) {
-        return lowers.remove(key);
-    }
 
     public void addContent(String line) {
         if(this.content==null)
             this.content = line;
         else
             this.content=this.content+line;
+    }
+
+    public String getContent(){
+        return this.content;
+    }
+    public ActComponent getFirstChild(){
+        return lowers.entrySet().iterator().next().getValue();
+    }
+    public ActComponent getLastChild(){
+        Iterator<Map.Entry<String, ActComponent>> iterator=lowers.entrySet().iterator();
+        ActComponent lastElement=null;
+        while (iterator.hasNext()) {
+            lastElement = iterator.next().getValue();
+        }
+        return lastElement;
+
+    }
+
+    public void removeContent(){
+        this.content=null;
+    }
+
+    public ActComponent search(LinkedList<IdentifiedEditorialUnit> path){
+
+        if(this.lowers.containsKey(path.getFirst().editUnitNum)) {
+            ActComponent finded=this.lowers.get(path.getFirst().editUnitNum);
+            if (finded.id.equals(path.getFirst())) {
+                path.removeFirst();
+                if (path.size()==0)
+                    return finded;
+                return finded.search(path);
+            }
+        }
+        return null;
+
+    }
+
+    public LinkedHashMap<String, ActComponent> getChildrens() {
+        return lowers;
     }
 }

@@ -10,16 +10,18 @@ public class ProgSpecyfication {
     public ProgSpecyfication(String[] args) throws IllegalArgumentException{
         if(args.length==0) {
             System.out.println("Help: Allowed arguments:");
-            // spisu treści ustawy
+            // spis treści ustawy
             // spis treści działu o numerze
 
             // wyświetlanie specyficznych elementów składowych artykułu
             // treści artykułu o określonym numerze lub zakresu artykułów
 
-            // -a - Print All;
             // -t - Print Table Of Contents;
-            // -p - Print Content Of Path;
+            // -a - Print All;
 
+            // -ap - Print All in Path;
+            // -ar - Print All in range
+            // -tp - Print Table Of Contents; in Path
 
             return;
         }
