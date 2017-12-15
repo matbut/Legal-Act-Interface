@@ -119,6 +119,7 @@ public class ActParser {
     public boolean endOfFile(){
         return !scanner.hasNextLine();
     }
+
     public boolean isEditorialUnit(String line){
         return matchesTo(line,EditorialUnit.values());
     }
@@ -132,7 +133,6 @@ public class ActParser {
     public boolean matchesTo(String line,IHasRegex[] collection) {
         for (IHasRegex element : collection)
             if (Pattern.matches(element.findRegex(), line)) {
-
                 return true;
             }
         return false;

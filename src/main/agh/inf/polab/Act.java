@@ -23,26 +23,23 @@ public class Act {
         this.title = firstLines;
     }
 
-    public void printTableOfContent(){
-        printTitle();
-        root.printTableOfContent();
-    }
-    public void printAll(){
-        printTitle();
-        printPreamble();
-        root.printAll();
-    }
-    public void printTitle(){
-        if(title!=null)
-            System.out.println(title);
-    }
-    public void printPreamble(){
-        if(preamble!=null)
-            System.out.println(preamble);
-    }
-
-    public ActComponent search(LinkedList<IdentifiedEditorialUnit> path){
+    public ActComponent searchInArticles(LinkedList<IdentifiedEditorialUnit> path){
         return articles.search(path);
     }
+    public ActComponent searchInTableOfContent(LinkedList<IdentifiedEditorialUnit> path){
+        return root.search(path);
+    }
 
+    public String getTitle() {
+        return title;
+    }
+    public String getPreamble() {
+        return preamble;
+    }
+    public ActComponent getArticles() {
+        return articles;
+    }
+    public ActComponent getRoot() {
+        return root;
+    }
 }

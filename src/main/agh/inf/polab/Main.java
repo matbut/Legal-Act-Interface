@@ -1,7 +1,9 @@
 package agh.inf.polab;
 
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 public class Main {
     public static void main(String[] args){
@@ -12,28 +14,38 @@ public class Main {
 
             Act act = actParser.parse();
 
-            act.printTableOfContent();
-            act.printAll();
+            PrinterAll printer = new PrinterAll();
+            System.out.println(printer.print(act));
+
+            PrinterTableOfContent tprinter= new PrinterTableOfContent();
+            System.out.println(tprinter.print(act));
+
+
 
             LinkedList<IdentifiedEditorialUnit> path = new LinkedList<>();
-            path.add(new IdentifiedEditorialUnit(EditorialUnit.Article,"228"));
-            path.add(new IdentifiedEditorialUnit(EditorialUnit.Passagge,"4"));
+            path.add(new IdentifiedEditorialUnit(EditorialUnit.Article,"4"));
+            path.add(new IdentifiedEditorialUnit(EditorialUnit.Point,"1"));
 
-            ActComponent actComponent=act.search(path);
-            if(actComponent!=null)
-                actComponent.printAll();
-            else
-                System.out.println("Nie ma takiego elementu w tej ustawie.");
+
+            SearchContent searchContent = new SearchContent();
+            ActComponent actComponent=searchContent.search(act,path);
+            System.out.println(actComponent.id.toString());
+
+            LinkedList<IdentifiedEditorialUnit> path2 = new LinkedList<>();
+            path2.add(new IdentifiedEditorialUnit(EditorialUnit.Chapter,"II"));
 
 
         }catch(FileNotFoundException  e){
             System.out.println("Nie znaleziono pliku");
             e.printStackTrace();
-        }catch (IllegalArgumentException e){
+        }catch(IllegalArgumentException e) {
             System.out.println("Błędny argument " + e);
             e.printStackTrace();
+        }catch(InputMismatchException e){
+            System.out.println();
+        }catch(NoSuchElementException e){
+            System.out.println(e.getMessage());
         }
-
     }
 
 }

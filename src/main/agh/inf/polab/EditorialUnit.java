@@ -35,13 +35,13 @@ public enum EditorialUnit implements IHasRegex{
             case Branch:
                 return "oddział ";
             case Article:
-                return "art. ";
+                return "art.";
             case Passagge:
-                return "ust. ";
+                return "ust.";
             case Point:
-                return "pkt. ";
+                return "pkt.";
             case Letter:
-                return "lit. ";
+                return "lit.";
             default:
                 return super.toString();
         }

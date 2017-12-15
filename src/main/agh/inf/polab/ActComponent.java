@@ -16,6 +16,8 @@ public class ActComponent{
     public void addChild(ActComponent p) {
         lowers.put(p.id.editUnitNum,p);
     }
+
+
     public void addContent(String line) {
         if(this.content==null)
             this.content = line;
@@ -26,29 +28,21 @@ public class ActComponent{
     public String getContent(){
         return this.content;
     }
+    public ActComponent getFirstChild(){
+        return lowers.entrySet().iterator().next().getValue();
+    }
+    public ActComponent getLastChild(){
+        Iterator<Map.Entry<String, ActComponent>> iterator=lowers.entrySet().iterator();
+        ActComponent lastElement=null;
+        while (iterator.hasNext()) {
+            lastElement = iterator.next().getValue();
+        }
+        return lastElement;
+
+    }
+
     public void removeContent(){
         this.content=null;
-    }
-
-    public void printAll() {
-        System.out.println(this.id.editUnitType.toTabulation() + this.id.editUnitType.toString()+this.id.editUnitNum);
-
-        if (this.getContent()!=null)
-            System.out.println(this.id.editUnitType.toTabulation() + getContent());
-
-        for(ActComponent actComponent : lowers.values())
-            actComponent.printAll();
-    }
-    public void printTableOfContent(){
-        if(this.id.editUnitType.isInTableOfContent()) {
-            System.out.println(this.id.editUnitType.toTabulation() + this.id.toString());
-
-            if (this.getContent()!=null)
-                System.out.println(this.id.editUnitType.toTabulation() + getContent());
-
-            for (ActComponent actComponent : lowers.values())
-                actComponent.printTableOfContent();
-        }
     }
 
     public ActComponent search(LinkedList<IdentifiedEditorialUnit> path){
@@ -64,5 +58,9 @@ public class ActComponent{
         }
         return null;
 
+    }
+
+    public LinkedHashMap<String, ActComponent> getChildrens() {
+        return lowers;
     }
 }
