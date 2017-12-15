@@ -24,7 +24,7 @@ public class Main {
 
             LinkedList<IdentifiedEditorialUnit> path = new LinkedList<>();
             path.add(new IdentifiedEditorialUnit(EditorialUnit.Article,"4"));
-            path.add(new IdentifiedEditorialUnit(EditorialUnit.Point,"1"));
+            path.add(new IdentifiedEditorialUnit(EditorialUnit.Passagge,"1"));
 
 
             SearchContent searchContent = new SearchContent();
@@ -33,6 +33,11 @@ public class Main {
 
             LinkedList<IdentifiedEditorialUnit> path2 = new LinkedList<>();
             path2.add(new IdentifiedEditorialUnit(EditorialUnit.Chapter,"II"));
+
+
+            SearchTableOfContent searchTableOfContent = new SearchTableOfContent();
+            actComponent=searchTableOfContent.search(act,path2);
+            System.out.println(actComponent.id.toString());
 
 
         }catch(FileNotFoundException  e){

@@ -1,6 +1,6 @@
 package agh.inf.polab;
 
-public class PrinterAll extends ActPrinter{
+public class PrinterAll extends Printer {
 
     @Override
     protected String printAct(Act act) {

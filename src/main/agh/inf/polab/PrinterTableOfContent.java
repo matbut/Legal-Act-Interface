@@ -1,10 +1,8 @@
 package agh.inf.polab;
 
-import java.util.Arrays;
-
 import static agh.inf.polab.EditorialUnit.Article;
 
-public class PrinterTableOfContent extends ActPrinter{
+public class PrinterTableOfContent extends Printer {
     private static String rangeSign="-";
 
     private static String bigTab = "................................................................................";
@@ -43,8 +41,8 @@ public class PrinterTableOfContent extends ActPrinter{
 
     @Override
     protected boolean stopTraverseChilds(ActComponent child) {
-        return child.id.editUnitType==Article;
-    }
+        return !child.id.editUnitType.isInTableOfContent();
+}
 
     private ActComponent getFirstArticle(ActComponent actComponent){
         while(actComponent.id.editUnitType!=EditorialUnit.Article)

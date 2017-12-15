@@ -1,33 +1,21 @@
 package agh.inf.polab;
 
-public abstract class ActTraversal {
+public abstract class BreadthwiseTraversal {
 
-    protected void traverseAct(Act act){
+    protected void traverseBreadthwise(Act act){
         processAct(act);
-        traverseAllActComponent(startTraverse(act));
+        traverseBreadthwiseComponent(startTraverse(act));
     }
-    private void traverseAllActComponent(ActComponent actComponent){
+    private void traverseBreadthwiseComponent(ActComponent actComponent){
         if(stopTraverseRoot(actComponent))
             return;
         processRoot(actComponent);
         for (ActComponent child : actComponent.getChildrens().values()){
-
             if(!stopTraverseChilds(child)){
                 processChild(child);
-                traverseAllActComponent(child);
+                traverseBreadthwiseComponent(child);
             }
         }
-    }
-
-    protected void traverseSpecyficAct(Act act){
-        processAct(act);
-        traverseSpecyficActComponent(startTraverse(act));
-    }
-    protected void traverseSpecyficActComponent(ActComponent actComponent){
-        if(stopTraverseRoot(actComponent))
-            return;
-        processRoot(actComponent);
-        traverseSpecyficActComponent(traversedChild(actComponent));
     }
 
     protected abstract ActComponent startTraverse(Act act);
@@ -36,5 +24,5 @@ public abstract class ActTraversal {
     protected abstract void processAct(Act act);
     protected abstract void processRoot(ActComponent actComponent);
     protected abstract void processChild(ActComponent children);
-    protected abstract ActComponent traversedChild(ActComponent actComponent);
+
 }
