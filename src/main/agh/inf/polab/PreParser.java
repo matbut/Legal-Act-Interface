@@ -8,10 +8,10 @@ import java.util.regex.Pattern;
 public class PreParser {
     private Scanner scanner;
 
-
     public PreParser(String fileName) throws FileNotFoundException {
         scanner=new Scanner(new File(fileName)).useDelimiter(Pattern.compile(System.getProperty("line.separator")));
     }
+
 
     public String getLine() {
         String line = scanner.nextLine();
@@ -21,6 +21,7 @@ public class PreParser {
             line.replaceFirst("-$","");
         return line;
     }
+
 
     public boolean endOfFile(){
         return !scanner.hasNextLine();

@@ -88,7 +88,6 @@ public enum EditorialUnit implements IHasRegex{
         else
             return null;
     }
-
     public EditorialUnit[] lowers(){
         switch (this){
             case Root:{
@@ -115,11 +114,13 @@ public enum EditorialUnit implements IHasRegex{
             }
         }
     }
-
     public EditorialUnit lower(){
         if (this.ordinal() < EditorialUnit.values().length-1)
             return EditorialUnit.values()[(this.ordinal()+1)];
         else
             return null;
+    }
+    public boolean isLastOne(){
+        return this.lowers()==null;
     }
 }
