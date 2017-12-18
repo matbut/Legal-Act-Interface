@@ -10,10 +10,11 @@ public class PrinterAll extends Printer {
     @Override
     protected String printRoot(ActComponent actComponent) {
         String line="";
+        String tab = actComponent.id.editUnitType.toTabulation();
         if(actComponent.id.editUnitType!=EditorialUnit.Root)
-            line=line.concat(actComponent.id.toString()+lineSeparator);
+            line=line.concat(tab + actComponent.id.toString()+lineSeparator);
         if(actComponent.getContent()!=null)
-            line=line.concat(actComponent.getContent()+lineSeparator);
+            line=line.concat(tab + actComponent.getContent()+lineSeparator);
         return line;
     }
 

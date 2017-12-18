@@ -4,7 +4,6 @@ import static agh.inf.polab.EditorialUnit.Article;
 
 public class PrinterTableOfContent extends Printer {
     private static String rangeSign="-";
-
     private static String bigTab = "................................................................................";
 
     @Override
