@@ -5,6 +5,7 @@ import static agh.inf.polab.EditorialUnit.Article;
 public class PrinterTableOfContent extends Printer {
     private static String rangeSign="-";
     private static String bigTab = "................................................................................";
+    private static String heading = " SPIS TREŚCI ";
 
     @Override
     protected String printAct(Act act) {
@@ -14,18 +15,26 @@ public class PrinterTableOfContent extends Printer {
     @Override
     protected String printRoot(ActComponent actComponent) {
         String tab=actComponent.id.editUnitType.toTabulation();
-        String line=tab + actComponent.id.toString();
+
+        StringBuilder strBuilder = new StringBuilder();
+        strBuilder.append(tab);
+        strBuilder.append(actComponent.id.toString());
 
         if(actComponent.id.editUnitType == EditorialUnit.Root)
-            line=" SPIS TREŚCI";
+            strBuilder.append(heading);
 
-        line=line.concat(bigTab.substring(0,bigTab.length()-line.length()));
-        line=line.concat(getFirstArticle(actComponent).id.toString()+rangeSign+getLastArticle(actComponent).id.editUnitNum+lineSeparator);
+        strBuilder.append(bigTab.substring(0,bigTab.length()-strBuilder.length()));
+        strBuilder.append(getFirstArticle(actComponent).id.toString());
+        strBuilder.append(rangeSign);
+        strBuilder.append(getLastArticle(actComponent).id.editUnitNum);
+        strBuilder.append(lineSeparator);
 
-        if(actComponent.getContent()!=null)
-            line=line.concat(tab + actComponent.getContent() + lineSeparator);
-
-        return line;
+        if(actComponent.getContent()!=null){
+            strBuilder.append(tab);
+            strBuilder.append(actComponent.getContent());
+            strBuilder.append(lineSeparator);
+        }
+        return strBuilder.toString();
     }
 
     @Override

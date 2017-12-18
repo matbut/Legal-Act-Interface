@@ -7,41 +7,54 @@ import java.util.regex.Pattern;
 
 public class PreParser {
     private Scanner scanner;
+    private String line;
 
     public PreParser(String fileName) throws FileNotFoundException {
-        scanner=new Scanner(new File(fileName)).useDelimiter(Pattern.compile(System.getProperty("line.separator")));
+        scanner=new Scanner(new File(fileName));
+        scanner.useDelimiter(Pattern.compile(System.getProperty("line.separator")));
+
+        getNewLine();
     }
 
-
+    public void clearLine(String regex){
+        line = line.replaceFirst(regex, "");
+        if(line.isEmpty())
+            getNewLine();
+    }
+    public void clearLine(){
+        clearLine(".*");
+    }
     public String getLine() {
-        String line = scanner.nextLine();
-        while(!endOfFile() && isDeletedExpr(line))
-            line = scanner.nextLine();
-        if (Pattern.matches(".*-$",line))
-            line.replaceFirst("-$","");
         return line;
     }
-
-
     public boolean endOfFile(){
-        return !scanner.hasNextLine();
+        return line.isEmpty();
     }
 
-    public boolean isEditorialUnit(String line){
-        return matchesTo(line,EditorialUnit.values());
-    }
-    public boolean isDeletedExpr(String line){
-        return matchesTo(line,DeletedExpr.values());
-    }
-    public boolean isText(String line) {
+    private void getNewLine() {
+        line="";
+        if(scanner.hasNext())
+            line = scanner.nextLine();
 
-        return !isEditorialUnit(line);
+        while (scanner.hasNext() && isDeletedExpr())
+            line = scanner.nextLine();
+
+        if (Pattern.matches(".*-$",line))
+            line = line.replaceFirst("-$", "");
     }
-    public boolean matchesTo(String line,IHasRegex[] collection) {
+
+    public boolean isEditorialUnit(){
+        return matchesTo(EditorialUnit.values());
+    }
+    private boolean isDeletedExpr(){
+        return matchesTo(DeletedExpr.values());
+    }
+    private boolean matchesTo(IHasRegex[] collection) {
         for (IHasRegex element : collection)
             if (Pattern.matches(element.findRegex(), line)) {
                 return true;
             }
         return false;
     }
+
 }

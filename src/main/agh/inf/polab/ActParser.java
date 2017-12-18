@@ -1,27 +1,23 @@
 package agh.inf.polab;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Iterator;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ActParser {
     private PreParser preParser;
     private Act act=new Act();
-    private static String DzU="Dz\\.U\\. \\d{4} Nr \\d+ poz\\. \\d+.*";
-    private String line="";
 
-    public ActParser(String fileName) throws FileNotFoundException{
+    public ActParser(String fileName) throws FileNotFoundException {
         preParser=new PreParser(fileName);
     }
-    public Act parse() throws InputMismatchException{
+
+    public Act parse() throws InputMismatchException {
         parseFirstLines();
 
-        line=preParser.getLine();
         ActComponent root=new ActComponent(new IdentifiedEditorialUnit(EditorialUnit.Root,""));
         SearchUnit(root);
 
@@ -34,22 +30,30 @@ public class ActParser {
         return act;
     }
 
-    public void parseFirstLines() throws InputMismatchException {
-        String line="";
-        if(!preParser.endOfFile())
-            line=preParser.getLine();
+    private void parseFirstLines() throws InputMismatchException {
+        String DzU="Dz\\.U\\. \\d{4} Nr \\d+ poz\\. \\d+.*";
+        StringBuilder strbuilder=new StringBuilder();
 
-        if(Pattern.matches(DzU,line) && !preParser.endOfFile()){
-            line=line+"\n"+preParser.getLine();
+        if(!preParser.endOfFile()) {
+            strbuilder.append(preParser.getLine());
+            preParser.clearLine();
         }
-        for(int i=0;i<2 && !preParser.endOfFile();i++)
-            line=line+"\n"+preParser.getLine();
+        if(Pattern.matches(DzU,preParser.getLine()) && !preParser.endOfFile()){
+            strbuilder.append("\n");
+            strbuilder.append((preParser.getLine()));
+            preParser.clearLine();
+        }
 
+        for(int i=0;i<2 && !preParser.endOfFile();i++) {
+            strbuilder.append("\n");
+            strbuilder.append((preParser.getLine()));
+            preParser.clearLine();
+        }
         if(preParser.endOfFile())
             throw new InputMismatchException("To short file ");
-        act.setTitle(line);
+        act.setTitle(strbuilder.toString());
     }
-    public void SearchUnit(ActComponent actComp){
+    private void SearchUnit(ActComponent actComp){
 
         getContent(actComp);
         FindUnits(actComp);
@@ -59,21 +63,16 @@ public class ActParser {
         }
 
     }
-    public void getContent(ActComponent actComp){
+    private void getContent(ActComponent actComp){
 
-        if(line.equals("") && !preParser.endOfFile())
-            line=preParser.getLine();
-
-        while(!preParser.endOfFile() && preParser.isText(line)) {
-            actComp.addContent(line);
-            line=preParser.getLine();
+        StringBuilder strbuilder=new StringBuilder();
+        while(!preParser.endOfFile() && !preParser.isEditorialUnit()) {
+            strbuilder.append(preParser.getLine());
+            preParser.clearLine();
         }
-
-        if(preParser.isText(line))
-            actComp.addContent(line);
+        actComp.addContent(strbuilder.toString());
     }
-    public void FindUnits(ActComponent actComp){
-
+    private void FindUnits(ActComponent actComp){
         if(actComp.id.editUnitType.isLastOne())
             return;
 
@@ -87,11 +86,11 @@ public class ActParser {
                 EditorialUnit findingUnit = iterator.next();
 
                 Pattern p = Pattern.compile(findingUnit.findRegex());
-                Matcher m = p.matcher(line);
+                Matcher m = p.matcher(preParser.getLine());
 
                 while (m.matches()) {
                     restart = true;
-                    line = line.replaceFirst(findingUnit.removeRegex(), "");
+                    preParser.clearLine(findingUnit.removeRegex());
 
                     IdentifiedEditorialUnit id = new IdentifiedEditorialUnit(findingUnit, m.group("id"));
 
@@ -99,14 +98,16 @@ public class ActParser {
                     actComp.addChild(newActComp);
 
                     //wyjatek dla wczytywania tytułu rodzialu()
-                    if (findingUnit == EditorialUnit.Chapter && !preParser.endOfFile())
+                    if (findingUnit == EditorialUnit.Chapter && !preParser.endOfFile()) {
                         newActComp.addContent(preParser.getLine());
-
+                        preParser.clearLine();
+                    }
                     SearchUnit(newActComp);
-                    m = p.matcher(line);
+                    m = p.matcher(preParser.getLine());
                 }
             }
         }
     }
 }
+
 

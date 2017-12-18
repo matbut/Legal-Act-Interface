@@ -10,6 +10,8 @@ public class Main {
         try {
 
             ProgSpecyfication progSpec = new ProgSpecyfication(args);
+
+
             ActParser actParser = new ActParser(progSpec.getFileName());
 
             Act act = actParser.parse();
@@ -47,9 +49,11 @@ public class Main {
             System.out.println("Błędny argument " + e);
             e.printStackTrace();
         }catch(InputMismatchException e){
-            System.out.println();
+            System.out.println("InputMismatchException");
+            e.printStackTrace();
         }catch(NoSuchElementException e){
-            System.out.println(e.getMessage());
+            System.out.println("NoSuchElementException");
+            e.printStackTrace();
         }
     }
 

@@ -3,7 +3,6 @@ package agh.inf.polab;
 import java.util.*;
 
 public class ActComponent{
-
     public final IdentifiedEditorialUnit id;
 
     private String content=null;
@@ -16,17 +15,21 @@ public class ActComponent{
     public void addChild(ActComponent p) {
         lowers.put(p.id.editUnitNum,p);
     }
-
-
     public void addContent(String line) {
+        if(line.isEmpty())
+            return;
+
         if(this.content==null)
             this.content = line;
         else
-            this.content=this.content+line;
+            this.content=this.content.concat(line);
     }
 
     public String getContent(){
         return this.content;
+    }
+    public LinkedHashMap<String, ActComponent> getChildrens() {
+        return lowers;
     }
     public ActComponent getFirstChild(){
         return lowers.entrySet().iterator().next().getValue();
@@ -43,24 +46,5 @@ public class ActComponent{
 
     public void removeContent(){
         this.content=null;
-    }
-
-    public ActComponent search(LinkedList<IdentifiedEditorialUnit> path){
-
-        if(this.lowers.containsKey(path.getFirst().editUnitNum)) {
-            ActComponent finded=this.lowers.get(path.getFirst().editUnitNum);
-            if (finded.id.equals(path.getFirst())) {
-                path.removeFirst();
-                if (path.size()==0)
-                    return finded;
-                return finded.search(path);
-            }
-        }
-        return null;
-
-    }
-
-    public LinkedHashMap<String, ActComponent> getChildrens() {
-        return lowers;
     }
 }

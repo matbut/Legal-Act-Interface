@@ -7,7 +7,8 @@ public enum DeletedExpr implements IHasRegex{
     sejm,
     data,
     rubbish,
-    removedtext;
+    removedtext,
+    empty;
 
     @Override
     public String removeRegex() {
@@ -20,13 +21,15 @@ public enum DeletedExpr implements IHasRegex{
                 return "^.?$";
             case removedtext:
                 return "\\(pominięt.*\\)";
+            case empty:
+                return "";
             default:
                 return super.toString();
         }
     }
 
     @Override
-    public String findRegex(){ return ".*"+removeRegex() + ".*";}
+    public String findRegex(){ return removeRegex() ;}
 
     /*
     public static boolean is(String line){

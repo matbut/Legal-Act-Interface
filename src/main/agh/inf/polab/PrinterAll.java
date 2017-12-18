@@ -4,18 +4,32 @@ public class PrinterAll extends Printer {
 
     @Override
     protected String printAct(Act act) {
-        return act.getTitle()+lineSeparator+act.getPreamble()+lineSeparator;
+        StringBuilder strBuilder = new StringBuilder();
+        strBuilder.append(act.getTitle());
+        strBuilder.append(lineSeparator);
+        if(act.getPreamble()!=null){
+            strBuilder.append(act.getPreamble());
+            strBuilder.append(lineSeparator);
+        }
+        return strBuilder.toString();
     }
 
     @Override
     protected String printRoot(ActComponent actComponent) {
-        String line="";
+        StringBuilder strBuilder = new StringBuilder();
         String tab = actComponent.id.editUnitType.toTabulation();
-        if(actComponent.id.editUnitType!=EditorialUnit.Root)
-            line=line.concat(tab + actComponent.id.toString()+lineSeparator);
-        if(actComponent.getContent()!=null)
-            line=line.concat(tab + actComponent.getContent()+lineSeparator);
-        return line;
+
+        if(actComponent.id.editUnitType!=EditorialUnit.Root){
+            strBuilder.append(tab);
+            strBuilder.append(actComponent.id.toString());
+            strBuilder.append(lineSeparator);
+        }
+        if(actComponent.getContent()!=null) {
+            strBuilder.append(tab);
+            strBuilder.append(actComponent.getContent());
+            strBuilder.append(lineSeparator);
+        }
+        return strBuilder.toString();
     }
 
     @Override

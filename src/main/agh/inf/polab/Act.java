@@ -23,13 +23,6 @@ public class Act {
         this.title = firstLines;
     }
 
-    public ActComponent searchInArticles(LinkedList<IdentifiedEditorialUnit> path){
-        return articles.search(path);
-    }
-    public ActComponent searchInTableOfContent(LinkedList<IdentifiedEditorialUnit> path){
-        return root.search(path);
-    }
-
     public String getTitle() {
         return title;
     }
@@ -42,4 +35,5 @@ public class Act {
     public ActComponent getRoot() {
         return root;
     }
+
 }

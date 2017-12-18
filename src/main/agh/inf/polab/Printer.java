@@ -1,26 +1,26 @@
 package agh.inf.polab;
 
 public abstract class Printer extends BreadthwiseTraversal {
-    private String line;
+    private StringBuilder strBuilder;
     protected String lineSeparator=System.getProperty("line.separator");
 
     public String print(Act act){
-        line="";
+        strBuilder=new StringBuilder();
         traverseBreadthwise(act);
-        return line;
+        return strBuilder.toString();
     }
 
     @Override
     protected void processAct(Act act) {
-        line=line.concat(printAct(act));
+        strBuilder.append((printAct(act)));
     }
     @Override
     protected void processRoot(ActComponent actComponent) {
-        line=line.concat(printRoot(actComponent));
+        strBuilder.append(printRoot(actComponent));
     }
     @Override
     protected void processChild(ActComponent child) {
-        line=line.concat(printChild(child));
+        strBuilder.append(printChild(child));
     }
     @Override
     protected boolean stopTraverseRoot(ActComponent root) {
