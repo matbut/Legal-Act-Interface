@@ -4,10 +4,10 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="300d9a0a-10f0-428b-99a0-b565014fa09b" name="Default" comment="">
+    <list default="true" id="300d9a0a-10f0-428b-99a0-b565014fa09b" name="Default" comment="Parser was first splited">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,22 +22,27 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PrinterTableOfContent.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java">
+      <file leaf-file-name="ActParser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="62" />
+            <state relative-caret-position="197">
+              <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrinterAll.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java">
+      <file leaf-file-name="PreParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-              <folding />
+            <state relative-caret-position="341">
+              <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#693#694#0" expanded="true" />
+                <element signature="e#738#739#0" expanded="true" />
+                <element signature="method#isText#0;class#PreParser#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -63,7 +68,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="oldmaster" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -92,7 +97,6 @@
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ProgSpecyfication.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/IHasRegex.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PrintAct.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/IPrinter.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ActTreeWalker.java" />
@@ -116,6 +120,8 @@
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/SearchTableOfContent.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" />
       </list>
     </option>
   </component>
@@ -124,6 +130,9 @@
     <option name="y" value="10" />
     <option name="width" value="1398" />
     <option name="height" value="976" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -426,7 +435,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513380020075</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Printers updates">
+      <created>1513586943345</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1513586943345</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -467,13 +483,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285273" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3285273" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23789908" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23789908" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -532,7 +548,9 @@
     <MESSAGE value="First Line Parser in Act Parser was updated" />
     <MESSAGE value="New Printer added" />
     <MESSAGE value="New Printer and Searcher implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Printer and Searcher implemented" />
+    <MESSAGE value="Printers updates" />
+    <MESSAGE value="Parser was first splited" />
+    <option name="LAST_COMMIT_MESSAGE" value="Parser was first splited" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -541,7 +559,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java" />
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -750,14 +767,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/BreadthwiseTraversal.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -784,8 +793,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="62" />
+        <state relative-caret-position="400">
+          <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="19" column="29" lean-forward="true" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#693#694#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="method#isText#0;class#PreParser#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding />
         </state>
       </provider>
