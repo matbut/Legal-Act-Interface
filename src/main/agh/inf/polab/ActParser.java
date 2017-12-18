@@ -70,7 +70,7 @@ public class ActParser {
             strbuilder.append(preParser.getLine());
             preParser.clearLine();
         }
-        actComp.addContent(strbuilder.toString());
+        actComp.setContent(strbuilder.toString());
     }
     private void FindUnits(ActComponent actComp){
         if(actComp.id.editUnitType.isLastOne())
@@ -99,7 +99,7 @@ public class ActParser {
 
                     //wyjatek dla wczytywania tytułu rodzialu()
                     if (findingUnit == EditorialUnit.Chapter && !preParser.endOfFile()) {
-                        newActComp.addContent(preParser.getLine());
+                        newActComp.setContent(preParser.getLine());
                         preParser.clearLine();
                     }
                     SearchUnit(newActComp);

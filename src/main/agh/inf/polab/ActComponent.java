@@ -15,14 +15,10 @@ public class ActComponent{
     public void addChild(ActComponent p) {
         lowers.put(p.id.editUnitNum,p);
     }
-    public void addContent(String line) {
-        if(line.isEmpty())
+    public void setContent(String content) {
+        if(content.isEmpty())
             return;
-
-        if(this.content==null)
-            this.content = line;
-        else
-            this.content=this.content.concat(line);
+        this.content=content;
     }
 
     public String getContent(){
