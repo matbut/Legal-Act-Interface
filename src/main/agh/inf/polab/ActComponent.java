@@ -3,17 +3,17 @@ package agh.inf.polab;
 import java.util.*;
 
 public class ActComponent{
-    public final IdentifiedEditorialUnit id;
+    public final IdentifiedEditorialUnit idEditUnit;
 
     private String content=null;
     private LinkedHashMap<String,ActComponent> childs = new LinkedHashMap<>();
 
     public ActComponent(IdentifiedEditorialUnit id){
-        this.id = id;
+        this.idEditUnit = id;
     }
 
     public void addChild(ActComponent p) {
-        childs.put(p.id.editUnitNum,p);
+        childs.put(p.idEditUnit.id,p);
     }
     public void setContent(String content) {
         if(content.isEmpty())

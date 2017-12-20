@@ -2,10 +2,7 @@ package agh.inf.polab;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.InputMismatchException;
-import java.util.Iterator;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ActParser {
@@ -52,7 +49,7 @@ public class ActParser {
         getContent(actComp);
         FindUnits(actComp);
 
-        if(actComp.id.editUnitType==EditorialUnit.Article){
+        if(actComp.idEditUnit.type ==EditorialUnit.Article){
             act.addArticle(actComp);
         }
 
@@ -67,59 +64,27 @@ public class ActParser {
         actComp.setContent(strbuilder.toString());
     }
     private void FindUnits(ActComponent actComp){
-        if(actComp.id.editUnitType.isLastOne())
+
+        if(actComp.idEditUnit.type.isLastOne())
             return;
 
-        boolean restart=true;
-/*
-        while(EditorialUnit.is(preParser.getLine())){
-            EditorialUnit findingUnit = EditorialUnit.convert(preParser.getLine());
-            preParser.clearLine(findingUnit.removeRegex());
+        while(EditorialUnit.is(preParser.getLine()) &&
+            (IdentifiedEditorialUnit.convert(preParser.getLine()).type.isInLowers(actComp.idEditUnit.type))){
 
-            IdentifiedEditorialUnit id = new IdentifiedEditorialUnit(findingUnit, m.group("id"));
+            IdentifiedEditorialUnit idEditUnit = IdentifiedEditorialUnit.convert(preParser.getLine());
 
-            ActComponent newActComp = new ActComponent(id);
+            preParser.clearLine(idEditUnit.type.removeRegex());
+            ActComponent newActComp = new ActComponent(idEditUnit);
             actComp.addChild(newActComp);
 
             //Po rozdziale konieczne jest wczytanie jego tytułu, aby nie pomylić go z oddziałem
-            if (findingUnit == EditorialUnit.Chapter && !preParser.endOfFile()) {
+            if (idEditUnit.type == EditorialUnit.Chapter && !preParser.endOfFile()) {
                 newActComp.setContent(preParser.getLine());
                 preParser.clearLine();
             }
             SearchUnit(newActComp);
+
         }
-
-       */
-        while(restart) {
-            Iterator<EditorialUnit> iterator = Arrays.asList(actComp.id.editUnitType.lowers()).iterator();
-
-            restart = false;
-            while (iterator.hasNext() && !restart) {
-                EditorialUnit findingUnit = iterator.next();
-
-                Pattern p = Pattern.compile(findingUnit.findRegex());
-                Matcher m = p.matcher(preParser.getLine());
-
-                while (m.matches()) {
-                    restart = true;
-                    preParser.clearLine(findingUnit.removeRegex());
-
-                    IdentifiedEditorialUnit id = new IdentifiedEditorialUnit(findingUnit, m.group("id"));
-
-                    ActComponent newActComp = new ActComponent(id);
-                    actComp.addChild(newActComp);
-
-                    //Po rozdziale konieczne jest wczytanie jego tytułu, aby nie pominąć go z oddziałem
-                    if (findingUnit == EditorialUnit.Chapter && !preParser.endOfFile()) {
-                        newActComp.setContent(preParser.getLine());
-                        preParser.clearLine();
-                    }
-                    SearchUnit(newActComp);
-                    m = p.matcher(preParser.getLine());
-                }
-            }
-        }
-
     }
 }
 

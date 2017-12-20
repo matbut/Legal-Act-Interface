@@ -29,16 +29,16 @@ public abstract class Search extends DepthTraversal{
 
     @Override
     protected void processRoot(ActComponent actComponent) {
-        actualpath=actualpath.concat(actComponent.id.toString() + lineSeparator);
+        actualpath=actualpath.concat(actComponent.idEditUnit.toString() + lineSeparator);
     }
 
     @Override
     protected ActComponent traversedChild(ActComponent actComponent) {
-        finded=actComponent.getChildrens().get(path.getFirst().editUnitNum) ;
+        finded=actComponent.getChildrens().get(path.getFirst().type) ;
         if(finded==null)
-            throw new NoSuchElementException("'" + path.getFirst().toString() + "' wasn't found in '" + actComponent.id.toString() + "'");
-        if(!finded.id.equals(path.getFirst()))
-            throw new NoSuchElementException("'" + finded.id.toString() + "' was found in '" + actComponent.id.toString() + "' instead of '" + path.getFirst().toString() + "'");
+            throw new NoSuchElementException("'" + path.getFirst().toString() + "' wasn't found in '" + actComponent.idEditUnit.toString() + "'");
+        if(!finded.idEditUnit.equals(path.getFirst()))
+            throw new NoSuchElementException("'" + finded.idEditUnit.toString() + "' was found in '" + actComponent.idEditUnit.toString() + "' instead of '" + path.getFirst().toString() + "'");
         path.removeFirst();
         return finded;
     }

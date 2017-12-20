@@ -15,11 +15,11 @@ public class PrinterAll extends Printer {
     @Override
     protected String printRoot(ActComponent actComponent) {
 
-        String tab = actComponent.id.editUnitType.toTabulation();
+        String tab = actComponent.idEditUnit.type.toTabulation();
         String line="";
 
-        if(actComponent.id.editUnitType!=EditorialUnit.Root)
-            line+=tab+actComponent.id+lineSeparator;
+        if(actComponent.idEditUnit.type !=EditorialUnit.Root)
+            line+=tab+actComponent.idEditUnit+lineSeparator;
 
         if(actComponent.getContent()!=null)
             line+=tab+actComponent.getContent()+lineSeparator;

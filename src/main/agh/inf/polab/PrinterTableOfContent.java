@@ -1,7 +1,5 @@
 package agh.inf.polab;
 
-import static agh.inf.polab.EditorialUnit.Article;
-
 public class PrinterTableOfContent extends Printer {
     private static String rangeSign="-";
     private static String bigTab = "................................................................................";
@@ -14,22 +12,21 @@ public class PrinterTableOfContent extends Printer {
 
     @Override
     protected String printRoot(ActComponent actComponent) {
-        String tab=actComponent.id.editUnitType.toTabulation();
+        String tab=actComponent.idEditUnit.type.toTabulation();
 
-        String line=tab+actComponent.id.toString();
+        String line=tab+actComponent.idEditUnit.toString();
 
-        if(actComponent.id.editUnitType == EditorialUnit.Root)
+        if(actComponent.idEditUnit.type == EditorialUnit.Root)
             line+=heading;
 
         line+=bigTab.substring(0,bigTab.length()-line.length());
-        line+=getFirstArticle(actComponent).id;
-        if(!getFirstArticle(actComponent).equals(getLastArticle(actComponent)))
-            line+=rangeSign+getLastArticle(actComponent).id.editUnitNum;
-        line+=lineSeparator;
+        line+=getFirstArticle(actComponent).idEditUnit;
 
+        if(!getFirstArticle(actComponent).equals(getLastArticle(actComponent)))
+            line+=rangeSign+getLastArticle(actComponent).idEditUnit.id;
+        line+=lineSeparator;
         if(actComponent.getContent()!=null)
             line+=tab+actComponent.getContent()+lineSeparator;
-
         return line;
     }
 
@@ -41,16 +38,16 @@ public class PrinterTableOfContent extends Printer {
 
     @Override
     protected boolean stopTraverseChilds(ActComponent child) {
-        return !child.id.editUnitType.isInTableOfContent();
+        return !child.idEditUnit.type.isInTableOfContent();
 }
 
     private ActComponent getFirstArticle(ActComponent actComponent){
-        while(actComponent.id.editUnitType!=EditorialUnit.Article)
+        while(actComponent.idEditUnit.type !=EditorialUnit.Article)
             actComponent=actComponent.getFirstChild();
         return actComponent;
     }
     private ActComponent getLastArticle(ActComponent actComponent){
-        while(actComponent.id.editUnitType!=EditorialUnit.Article)
+        while(actComponent.idEditUnit.type !=EditorialUnit.Article)
             actComponent=actComponent.getLastChild();
         return actComponent;
     }

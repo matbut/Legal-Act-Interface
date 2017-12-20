@@ -152,12 +152,12 @@ public enum EditorialUnit implements IHasRegex{
     }
 
 
-    public boolean isInLowers(ActComponent actComponent){
-        if(this.isLastOne())
+    public boolean isInLowers(EditorialUnit parent){
+        if(parent.isLastOne())
             return false;
 
-        for(EditorialUnit findingUnit : this.lowers())
-            if(actComponent.equals(findingUnit))
+        for(EditorialUnit findingUnit : parent.lowers())
+            if(this==findingUnit)
                 return  true;
         return false;
     }
@@ -176,4 +176,6 @@ public enum EditorialUnit implements IHasRegex{
 
         throw new IllegalArgumentException("Incorrect argument: " + s);
     }
+
+
 }

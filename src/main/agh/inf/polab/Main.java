@@ -14,7 +14,7 @@ public class Main {
 
             OptionParser app = new OptionParser();
             CommandLine commandLine = new CommandLine(app);
-            commandLine.registerConverter(IdentifiedEditorialUnit.class, s -> IdentifiedEditorialUnit.convert(s));
+            commandLine.registerConverter(IdentifiedEditorialUnit.class, s -> IdentifiedEditorialUnit.convert2(s));
 
             commandLine.parse(args);
 
