@@ -2,7 +2,10 @@ package agh.inf.polab;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.Iterator;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ActParser {
@@ -46,12 +49,12 @@ public class ActParser {
     }
     private void SearchUnit(ActComponent actComp){
 
-        getContent(actComp);
-        FindUnits(actComp);
-
         if(actComp.idEditUnit.type ==EditorialUnit.Article){
             act.addArticle(actComp);
         }
+
+        getContent(actComp);
+        FindUnits(actComp);
 
     }
     private void getContent(ActComponent actComp){
@@ -63,7 +66,7 @@ public class ActParser {
         }
         actComp.setContent(strbuilder.toString());
     }
-    private void FindUnits(ActComponent actComp){
+    private void FindUnits(ActComponent actComp) {
 
         if(actComp.idEditUnit.type.isLastOne())
             return;
@@ -84,7 +87,41 @@ public class ActParser {
             }
             SearchUnit(newActComp);
 
+
         }
+/*
+
+        boolean restart = true;
+        while (restart) {
+            Iterator<EditorialUnit> iterator = Arrays.asList(actComp.idEditUnit.type.lowers()).iterator();
+
+            restart = false;
+            while (iterator.hasNext() && !restart) {
+                EditorialUnit findingUnit = iterator.next();
+
+                Pattern p = Pattern.compile(findingUnit.findRegex());
+                Matcher m = p.matcher(preParser.getLine());
+
+                while (m.matches()) {
+                    restart = true;
+                    preParser.clearLine(findingUnit.removeRegex());
+
+                    IdentifiedEditorialUnit id = new IdentifiedEditorialUnit(findingUnit, m.group("id"));
+
+                    ActComponent newActComp = new ActComponent(id);
+                    actComp.addChild(newActComp);
+
+                    //Po rozdziale konieczne jest wczytanie jego tytułu, aby nie pominąć go z oddziałem
+                    if (findingUnit == EditorialUnit.Chapter && !preParser.endOfFile()) {
+                        newActComp.setContent(preParser.getLine());
+                        preParser.clearLine();
+                    }
+                    SearchUnit(newActComp);
+                    m = p.matcher(preParser.getLine());
+                }
+            }
+        }
+*/
     }
 }
 

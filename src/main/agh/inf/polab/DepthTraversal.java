@@ -13,6 +13,7 @@ public abstract class DepthTraversal {
     }
 
     protected abstract ActComponent startTraverse(Act act);
+
     protected abstract boolean stopTraverseRoot(ActComponent root);
     protected abstract void processAct(Act act);
     protected abstract void processRoot(ActComponent actComponent);

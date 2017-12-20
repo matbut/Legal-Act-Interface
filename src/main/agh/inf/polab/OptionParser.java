@@ -14,35 +14,22 @@ import java.util.List;
 
 public class OptionParser {
 
-    // spis treści ustawy
-    // spis treści działu o numerze
-
-    // wyświetlanie specyficznych elementów składowych artykułu
-    // treści artykułu o określonym numerze lub zakresu artykułów
-
-    // -t - Print Table Of Contents;
-    // -a - Print All;
-
-    // -ap - Print All in Path;
-    // -ar - Print All in range
-    // -tp - Print Table Of Contents; in Path
-
-
-
     @Option(names = { "-t", "--table" }, description = "print table of content")
     public boolean tableOfContent = false;
 
-    @Option(names = { "-a", "--all" }, description = "print all")
-    public boolean all = false;
+    @Option(names = { "-c", "--content" }, description = "print content")
+    public boolean content = false;
 
     @Option(names = { "-h", "--help" }, usageHelp = true, description = "display a help message")
     public boolean usageHelpRequested = false;
 
-    @Parameters(index = "0", paramLabel = "FILE", description = "file to process.")
-    public File inputFile;
+    @Option(names = { "-r", "--range" },split = "-", description = "specify range")
+    LinkedList<IdentifiedEditorialUnit> range;
 
-    @Parameters(index = "1..*", description = "path")
+    @Option(names = { "-p", "--path" },split = ",", description = "specify path splited by ','")
     LinkedList<IdentifiedEditorialUnit> path;
 
+    @Parameters(arity = "1", paramLabel = "FILE", description = "file to process.")
+    public File inputFile;
 }
 

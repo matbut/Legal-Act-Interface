@@ -31,12 +31,6 @@ public class PrinterTableOfContent extends Printer {
     }
 
     @Override
-    protected String printChild(ActComponent actComponent) {
-        return "";
-    }
-
-
-    @Override
     protected boolean stopTraverseChilds(ActComponent child) {
         return !child.idEditUnit.type.isInTableOfContent();
 }

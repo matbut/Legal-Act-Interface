@@ -1,25 +1,21 @@
 package agh.inf.polab;
 
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
+import java.util.*;
 
 public abstract class Search extends DepthTraversal{
     protected String lineSeparator=System.getProperty("line.separator");
-    protected LinkedList<IdentifiedEditorialUnit> path;
+    protected Iterator<IdentifiedEditorialUnit> path;
     protected ActComponent finded;
     protected String actualpath;
 
-    protected ActComponent search(Act act,LinkedList<IdentifiedEditorialUnit> path) {
-        this.path=path;
+    protected ActComponent search(Act act,Collection<IdentifiedEditorialUnit> path) {
+        this.path=path.iterator();
         traverseDeeplyAct(act);
         return finded;
     }
     @Override
     protected boolean stopTraverseRoot(ActComponent root) {
-        if(path.size()==0){
-            return true;
-        }
-        return false;
+        return !path.hasNext();
     }
 
     @Override
@@ -29,17 +25,17 @@ public abstract class Search extends DepthTraversal{
 
     @Override
     protected void processRoot(ActComponent actComponent) {
-        actualpath=actualpath.concat(actComponent.idEditUnit.toString() + lineSeparator);
+        actualpath=actualpath.concat(actComponent.idEditUnit + lineSeparator);
     }
 
     @Override
     protected ActComponent traversedChild(ActComponent actComponent) {
-        finded=actComponent.getChildrens().get(path.getFirst().type) ;
+        IdentifiedEditorialUnit first = path.next();
+        finded=actComponent.getChildrens().get(first.id) ;
         if(finded==null)
-            throw new NoSuchElementException("'" + path.getFirst().toString() + "' wasn't found in '" + actComponent.idEditUnit.toString() + "'");
-        if(!finded.idEditUnit.equals(path.getFirst()))
-            throw new NoSuchElementException("'" + finded.idEditUnit.toString() + "' was found in '" + actComponent.idEditUnit.toString() + "' instead of '" + path.getFirst().toString() + "'");
-        path.removeFirst();
+            throw new NoSuchElementException("'"+first+"' wasn't found in '"+actComponent.idEditUnit+"'. Got there by '"+actualpath+"'");
+        if(!finded.idEditUnit.equals(first))
+            throw new NoSuchElementException("'"+finded.idEditUnit+"' was found in '"+actComponent.idEditUnit+"' instead of '"+first+"'. Got there by '"+actualpath+"'");
         return finded;
     }
 }

@@ -2,9 +2,9 @@ package agh.inf.polab;
 
 public class PrinterAll extends Printer {
 
+
     @Override
     protected String printAct(Act act) {
-
         String line=act.getTitle()+lineSeparator;
         if(act.getPreamble()!=null)
             line+=act.getPreamble()+lineSeparator;
@@ -26,11 +26,4 @@ public class PrinterAll extends Printer {
 
         return line;
     }
-
-    @Override
-    protected String printChild(ActComponent actComponent) {
-        return "";
-    }
-
-
 }

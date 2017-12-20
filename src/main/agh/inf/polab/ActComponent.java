@@ -8,6 +8,7 @@ public class ActComponent{
     private String content=null;
     private LinkedHashMap<String,ActComponent> childs = new LinkedHashMap<>();
 
+
     public ActComponent(IdentifiedEditorialUnit id){
         this.idEditUnit = id;
     }

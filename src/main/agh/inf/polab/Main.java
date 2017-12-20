@@ -24,18 +24,28 @@ public class Main {
 
             if (app.usageHelpRequested) {
                 CommandLine.usage(new OptionParser(),System.err);
-                return;
             }
 
             ActParser actParser = new ActParser(app.inputFile);
-
             Act act = actParser.parse();
 
-            PrinterAll printer = new PrinterAll();
-            System.out.println(printer.print(act));
+            if(app.tableOfContent){
+                Printer printer= new PrinterTableOfContent();
+                System.out.println(printer.print(act));
+            }
+            if(app.content){
+                Printer printer = new PrinterAll();
+                System.out.println(printer.print(act));
+            }
+            if(app.path!=null){
+                SearchContent searchContent=new SearchContent();
+                System.out.println(searchContent.search(act,app.path).idEditUnit);
+            }
+            if(app.range!=null){
+                PrinterRange printer = new PrinterRange();
+                System.out.println(printer.print(act,app.range.getFirst(),app.range.getLast()));
+            }
 
-            PrinterTableOfContent tprinter= new PrinterTableOfContent();
-            System.out.println(tprinter.print(act));
 
             /*
             LinkedList<IdentifiedEditorialUnit> path = new LinkedList<>();
