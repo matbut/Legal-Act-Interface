@@ -34,6 +34,9 @@ public abstract class Printer extends BreadthwiseTraversal {
     protected abstract String printAct(Act act);
     protected abstract String printRoot(ActComponent actComponent);
     protected abstract String printChild(ActComponent actComponent);
-
+    @Override
+    protected ActComponent startTraverse(Act act) {
+        return act.getRoot();
+    }
 
 }

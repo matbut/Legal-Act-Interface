@@ -14,13 +14,13 @@ public class Act {
         articles.addChild(actComp);
     }
     public void setRoot(ActComponent actComponent){
-        this.root =actComponent;
+        root =actComponent;
     }
     public void setPreable(String preable) {
         this.preamble=preable;
     }
     public void setTitle(String firstLines) {
-        this.title = firstLines;
+        title = firstLines;
     }
 
     public String getTitle() {

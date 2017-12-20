@@ -4,7 +4,23 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="300d9a0a-10f0-428b-99a0-b565014fa09b" name="Default" comment="Stringbuilder repleced concatenating" />
+    <list default="true" id="300d9a0a-10f0-428b-99a0-b565014fa09b" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/OptionParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Legal-Act-Interface.iml" afterPath="$PROJECT_DIR$/Legal-Act-Interface.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/Act.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/Act.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/DeletedExpr.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/DeletedExpr.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/Main.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/Printer.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/Printer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/agh/inf/polab/SearchTableOfContent.java" afterPath="$PROJECT_DIR$/src/main/agh/inf/polab/SearchTableOfContent.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,37 +34,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PrinterTableOfContent.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java">
+      <file leaf-file-name="EditorialUnit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="115" lean-forward="true" selection-start-line="6" selection-start-column="115" selection-end-line="6" selection-end-column="115" />
+            <state relative-caret-position="509">
+              <caret line="163" column="0" lean-forward="true" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
               <folding>
-                <element signature="e#396#397#0" expanded="true" />
-                <element signature="e#447#448#0" expanded="true" />
-                <marker date="1513639826531" expanded="false" signature="1458:1469" ph=" { " />
-                <marker date="1513639826531" expanded="false" signature="1479:1485" ph=" }" />
-                <marker date="1513639826531" expanded="false" signature="1550:1561" ph=" { " />
-                <marker date="1513639826531" expanded="false" signature="1582:1588" ph=" }" />
-                <marker date="1513639826531" expanded="false" signature="1664:1675" ph=" { " />
-                <marker date="1513639826531" expanded="false" signature="1726:1728" ph=" }" />
+                <element signature="imports" expanded="true" />
+                <element signature="method#toTabulation#0;class#EditorialUnit#0" expanded="false" />
+                <element signature="method#toString#0;class#EditorialUnit#0" expanded="false" />
+                <element signature="method#findRegex#0;class#EditorialUnit#0" expanded="false" />
+                <element signature="method#higher#0;class#EditorialUnit#0" expanded="false" />
+                <element signature="method#lowers#0;class#EditorialUnit#0" expanded="false" />
+                <element signature="method#lower#0;class#EditorialUnit#0" expanded="false" />
+                <element signature="method#optionParserRegex#0;class#EditorialUnit#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrinterAll.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java">
+      <file leaf-file-name="PrinterTableOfContent.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="480">
+              <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="16" column="109" lean-forward="false" selection-start-line="16" selection-start-column="109" selection-end-line="16" selection-end-column="109" />
               <folding>
-                <marker date="1513639826527" expanded="true" signature="1093:1100" ph="{...}" />
-                <marker date="1513639826527" expanded="false" signature="1174:1185" ph=" { " />
-                <marker date="1513639826527" expanded="false" signature="1195:1201" ph=" }" />
-                <marker date="1513639826527" expanded="false" signature="1266:1277" ph=" { " />
-                <marker date="1513639826527" expanded="false" signature="1298:1304" ph=" }" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActParser.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -69,6 +101,7 @@
     <findStrings>
       <find>151</find>
       <find>&quot;&quot;</find>
+      <find>this</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -100,7 +133,6 @@
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/NavigationUnit.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Content.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/DefiniteEditorialUnit.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ProgSpecyfication.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/IHasRegex.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PrintAct.java" />
@@ -118,20 +150,22 @@
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/DepthTraversal.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Search.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/SearchContent.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/SearchTableOfContent.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java" />
         <option value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/util/Scanner.class" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/DeletedExpr.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/NewPreParser.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/NewActParser.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/OldActParser.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Printer.java" />
-        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Act.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/SearchTableOfContent.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/OptionParser.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Printer.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/DeletedExpr.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java" />
+        <option value="$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java" />
         <option value="$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java" />
       </list>
     </option>
@@ -141,6 +175,9 @@
     <option name="y" value="10" />
     <option name="width" value="1398" />
     <option name="height" value="976" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -158,8 +195,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,24 +220,13 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="polab" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Legal-Act-Interface" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Legal-Act-Interface" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Legal-Act-Interface" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Legal-Act-Interface" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="polab" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,13 +234,16 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.31059062" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/picocli-2.1.0.jar!/" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/mateusz/Studia/Obiektowe/Legal-Act-Interface/src/main/agh/inf/polab/NewPreParser.java" />
-    <property name="last.edited.regexp" value="1997-12-13" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/mateusz/Studia/Obiektowe/Legal-Act-Interface/src/main/agh/inf/polab/OptionParser.java" />
+    <property name="last.edited.regexp" value="Art. 1a-1a." />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="agh.inf.polab" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="agh.inf.polab" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -235,7 +262,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main uokik.txt">
+  <component name="RunManager" selected="Application.Main konstytucja.txt">
     <configuration name="All in Legal-Act-Interface" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Legal-Act-Interface" />
@@ -256,6 +283,20 @@
       <envs />
       <patterns />
     </configuration>
+    <configuration name="Help" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="agh.inf.polab.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="--help" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Legal-Act-Interface" />
+      <envs />
+    </configuration>
     <configuration name="Main konstytucja.txt" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -265,7 +306,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="agh.inf.polab.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-p ../konstytucja.txt" />
+      <option name="PROGRAM_PARAMETERS" value="-t ../konstytucja.txt " />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -284,7 +325,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="agh.inf.polab.Main" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="-p ../uokik.txt" />
+      <option name="PROGRAM_PARAMETERS" value="-t ../uokik.txt" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -394,11 +435,12 @@
       <module name="Legal-Act-Interface" />
       <envs />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Application.Main konstytucja.txt" />
-      <item index="1" class="java.lang.String" itemvalue="Application.test.txt" />
-      <item index="2" class="java.lang.String" itemvalue="Application.Main uokik.txt" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.All in Legal-Act-Interface" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Application.Help" />
+      <item index="1" class="java.lang.String" itemvalue="Application.Main konstytucja.txt" />
+      <item index="2" class="java.lang.String" itemvalue="Application.test.txt" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main uokik.txt" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.All in Legal-Act-Interface" />
     </list>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
@@ -485,7 +527,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513589547432</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="small update">
+      <created>1513640171858</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1513640171858</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -521,17 +570,18 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="99" y="10" width="1849" height="1089" extended-state="6" />
+    <frame x="73" y="-5" width="1847" height="1085" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16065912" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23789908" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2914521" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -544,31 +594,11 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39958805" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924336" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39958805" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16065912" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39031926" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18895507" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285273" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -585,12 +615,12 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39958805" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285273" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16065912" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30175078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16683832" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18895507" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -614,36 +644,16 @@
     <MESSAGE value="Parser was first splited" />
     <MESSAGE value="Before modifying two parsers" />
     <MESSAGE value="Stringbuilder repleced concatenating" />
-    <option name="LAST_COMMIT_MESSAGE" value="Stringbuilder repleced concatenating" />
+    <MESSAGE value="small update" />
+    <option name="LAST_COMMIT_MESSAGE" value="small update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="81" />
+      <option name="time" value="89" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/agh/inf/polab/EditorialUnitTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ProgSpecyfication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="38" column="37" lean-forward="true" selection-start-line="38" selection-start-column="37" selection-end-line="38" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1332">
-          <caret line="97" column="24" lean-forward="false" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -741,24 +751,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IPrinter.java" />
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActComponentPrinter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java" />
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/NotFoundExeption.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IHasRegex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/SearchTableOfContent.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/SearchContent.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Search.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-213">
-          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/util/Scanner.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
@@ -773,126 +766,191 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/DeletedExpr.java">
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/OldActParser.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/OldPreParser.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/SearchContent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="22" column="24" lean-forward="true" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state relative-caret-position="80">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CommandLine.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/SearchTableOfContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Act.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="e#331#332#0" expanded="false" />
+            <element signature="e#373#374#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/resources/picocli-2.1.0.jar!/picocli/CommandLine.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1399">
+          <caret line="3492" column="0" lean-forward="false" selection-start-line="3492" selection-start-column="0" selection-end-line="3492" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Search.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1320">
+          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ProgSpecyfication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-239">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/OldActParser.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/BreadthwiseTraversal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="1160">
+          <caret line="58" column="77" lean-forward="false" selection-start-line="58" selection-start-column="51" selection-end-line="58" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java">
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/DepthTraversal.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="122" column="28" lean-forward="false" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="28" />
+        <state relative-caret-position="160">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/OptionParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="712">
+          <caret line="44" column="45" lean-forward="true" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
           <folding>
-            <element signature="method#toString#0;class#EditorialUnit#0" expanded="false" />
-            <element signature="method#removeRegex#0;class#EditorialUnit#0" expanded="false" />
-            <element signature="method#findRegex#0;class#EditorialUnit#0" expanded="false" />
-            <element signature="method#higher#0;class#EditorialUnit#0" expanded="false" />
-            <element signature="method#lowers#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/OldPreParser.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PreParser.java">
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IHasRegex.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="40">
+          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/BreadthwiseTraversal.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="method#setContent#0;class#ActComponent#0" expanded="false" />
+            <element signature="e#797#798#0" expanded="true" />
+            <element signature="method#getLastChild#0;class#ActComponent#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PrinterAll.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="380">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
-            <marker date="1513639826527" expanded="true" signature="1093:1100" ph="{...}" />
-            <marker date="1513639826527" expanded="false" signature="1174:1185" ph=" { " />
-            <marker date="1513639826527" expanded="false" signature="1195:1201" ph=" }" />
-            <marker date="1513639826527" expanded="false" signature="1266:1277" ph=" { " />
-            <marker date="1513639826527" expanded="false" signature="1298:1304" ph=" }" />
+            <element signature="method#printRoot#0;class#PrinterAll#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Printer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="4" column="56" lean-forward="true" selection-start-line="4" selection-start-column="56" selection-end-line="4" selection-end-column="56" />
+          <folding>
+            <element signature="e#527#528#0" expanded="true" />
+            <element signature="e#585#586#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/IdentifiedEditorialUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/DeletedExpr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="16" column="109" lean-forward="false" selection-start-line="16" selection-start-column="109" selection-end-line="16" selection-end-column="109" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/PrinterTableOfContent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="115" lean-forward="true" selection-start-line="6" selection-start-column="115" selection-end-line="6" selection-end-column="115" />
+        <state relative-caret-position="480">
+          <caret line="26" column="18" lean-forward="true" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/EditorialUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="163" column="0" lean-forward="true" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
           <folding>
-            <element signature="e#396#397#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <marker date="1513639826531" expanded="false" signature="1458:1469" ph=" { " />
-            <marker date="1513639826531" expanded="false" signature="1479:1485" ph=" }" />
-            <marker date="1513639826531" expanded="false" signature="1550:1561" ph=" { " />
-            <marker date="1513639826531" expanded="false" signature="1582:1588" ph=" }" />
-            <marker date="1513639826531" expanded="false" signature="1664:1675" ph=" { " />
-            <marker date="1513639826531" expanded="false" signature="1726:1728" ph=" }" />
+            <element signature="imports" expanded="true" />
+            <element signature="method#toTabulation#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#toString#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#findRegex#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#higher#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#lowers#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#lower#0;class#EditorialUnit#0" expanded="false" />
+            <element signature="method#optionParserRegex#0;class#EditorialUnit#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/DepthTraversal.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="22" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Act.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="48" column="5" lean-forward="false" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/Printer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="39" lean-forward="false" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/agh/inf/polab/ActParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="80" column="2" lean-forward="false" selection-start-line="80" selection-start-column="2" selection-end-line="80" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="209">
+          <caret line="78" column="8" lean-forward="false" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -953,7 +1011,6 @@
             <option name="proportions">
               <list>
                 <option value="0.31059062" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

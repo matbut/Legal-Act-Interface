@@ -16,25 +16,21 @@ public class PrinterTableOfContent extends Printer {
     protected String printRoot(ActComponent actComponent) {
         String tab=actComponent.id.editUnitType.toTabulation();
 
-        StringBuilder strBuilder = new StringBuilder();
-        strBuilder.append(tab);
-        strBuilder.append(actComponent.id.toString());
+        String line=tab+actComponent.id.toString();
 
         if(actComponent.id.editUnitType == EditorialUnit.Root)
-            strBuilder.append(heading);
+            line+=heading;
 
-        strBuilder.append(bigTab.substring(0,bigTab.length()-strBuilder.length()));
-        strBuilder.append(getFirstArticle(actComponent).id.toString());
-        strBuilder.append(rangeSign);
-        strBuilder.append(getLastArticle(actComponent).id.editUnitNum);
-        strBuilder.append(lineSeparator);
+        line+=bigTab.substring(0,bigTab.length()-line.length());
+        line+=getFirstArticle(actComponent).id;
+        if(!getFirstArticle(actComponent).equals(getLastArticle(actComponent)))
+            line+=rangeSign+getLastArticle(actComponent).id.editUnitNum;
+        line+=lineSeparator;
 
-        if(actComponent.getContent()!=null){
-            strBuilder.append(tab);
-            strBuilder.append(actComponent.getContent());
-            strBuilder.append(lineSeparator);
-        }
-        return strBuilder.toString();
+        if(actComponent.getContent()!=null)
+            line+=tab+actComponent.getContent()+lineSeparator;
+
+        return line;
     }
 
     @Override
@@ -42,10 +38,6 @@ public class PrinterTableOfContent extends Printer {
         return "";
     }
 
-    @Override
-    protected ActComponent startTraverse(Act act) {
-        return act.getRoot();
-    }
 
     @Override
     protected boolean stopTraverseChilds(ActComponent child) {

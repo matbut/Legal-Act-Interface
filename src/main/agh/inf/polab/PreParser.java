@@ -9,8 +9,8 @@ public class PreParser {
     private Scanner scanner;
     private String line;
 
-    public PreParser(String fileName) throws FileNotFoundException {
-        scanner=new Scanner(new File(fileName));
+    public PreParser(File file) throws FileNotFoundException {
+        scanner=new Scanner(file);
         scanner.useDelimiter(Pattern.compile(System.getProperty("line.separator")));
 
         getNewLine();
@@ -36,13 +36,14 @@ public class PreParser {
         if(scanner.hasNext())
             line = scanner.nextLine();
 
-        while (scanner.hasNext() && isDeletedExpr())
+        while (scanner.hasNext() && DeletedExpr.is(line))
             line = scanner.nextLine();
 
         if (Pattern.matches(".*-$",line))
             line = line.replaceFirst("-$", "");
     }
 
+    /*
     public boolean isEditorialUnit(){
         return matchesTo(EditorialUnit.values());
     }
@@ -56,5 +57,22 @@ public class PreParser {
             }
         return false;
     }
+    */
 
+        /*
+        private LinkedList<IdentifiedEditorialUnit> zip(List<EditorialUnit> editUnitList, List<String> idList){
+        if(editUnitList.size()!=idList.size())
+            throw new IllegalArgumentException("Illegal path");
+
+        LinkedList<IdentifiedEditorialUnit> idEditUnitList=new LinkedList<>();
+
+        Iterator<EditorialUnit> editUnitIterator = editUnitList.iterator();
+        Iterator<String> idIterator = idList.iterator();
+
+        while(editUnitIterator.hasNext())
+            idEditUnitList.add(new IdentifiedEditorialUnit(editUnitIterator.next(),idIterator.next()));
+
+        return idEditUnitList;
+
+     */
 }

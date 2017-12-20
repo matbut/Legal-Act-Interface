@@ -1,8 +1,14 @@
 package agh.inf.polab;
 
 
+import picocli.CommandLine;
+
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public enum EditorialUnit implements IHasRegex{
-    Root,           //
+    Root,
 
     Section,        // dział
     Chapter,        // rozdział
@@ -15,7 +21,7 @@ public enum EditorialUnit implements IHasRegex{
     public String toTabulation() {
         String line="";
         for(int i=0;i<this.ordinal();i++)
-            line=line+"  ";
+            line+="  ";
         return line;
     }
 
@@ -57,19 +63,16 @@ public enum EditorialUnit implements IHasRegex{
             case Chapter:
                 return "^Rozdział (?<id>\\d*\\p{Alpha}*)";
             case Branch:
-                return "(?!DZIAŁ .*\\b)(?<id>[A-ZĘÓĄŚŁŻŹĆŃ ,]{5,})";
+                return "(?!DZIAŁ .*\\b)^(?<id>[A-ZĘÓĄŚŁŻŹĆŃ ,]{5,})";
             case Article:
-                return "Art\\. (?<id>\\d+\\p{Lower}*)\\. *";
+                return "^Art\\. (?<id>\\d+\\p{Lower}*)\\. *";
             case Passagge:
-                //Ustęp oznacza się cyframi arabskimi z kropką bez nawiasu
-                return "(?<id>\\d+\\p{Lower}*)\\. *";
+                return "^(?<id>\\d+\\p{Lower}*)\\. *";   //Ustęp oznacza się cyframi arabskimi z kropką bez nawiasu
             case Point:
-                //Punkt oznacza się cyframi arabskimi z nawiasem z prawej strony
-                return "(?<id>\\d+\\p{Lower}*)\\) +";
+                return "^(?<id>\\d+\\p{Lower}*)\\) +";   //Punkt oznacza się cyframi arabskimi z nawiasem z prawej strony
             case Letter:
-                //Wyliczenie w obrębie punktów (tzw. litery) oznacza się małymi literami alfabetu łacińskiego,
-                //z wyłączeniem liter właściwych tylko językowi polskiemu (ą, ć, ę, ł, ń, ó, ś, ż, ź), z nawiasem z prawej strony
-                return "(?<id>\\p{Lower}+)\\) +";
+                return "^(?<id>\\p{Lower}+)\\) +";   //Wyliczenie w obrębie punktów (tzw. litery) oznacza się małymi literami alfabetu łacińskiego,
+                                                    //z wyłączeniem liter właściwych tylko językowi polskiemu (ą, ć, ę, ł, ń, ó, ś, ż, ź), z nawiasem z prawej strony
             default:
                 return super.toString();
         }
@@ -79,7 +82,7 @@ public enum EditorialUnit implements IHasRegex{
     public String findRegex(){
         if (this==Branch)
             return this.removeRegex();
-        return "^"+this.removeRegex()+".*";
+        return this.removeRegex()+".*";
     }
 
     public EditorialUnit higher(){
@@ -122,5 +125,55 @@ public enum EditorialUnit implements IHasRegex{
     }
     public boolean isLastOne(){
         return this.lowers()==null;
+    }
+
+    public String optionParserRegex() {
+        switch (this) {
+            case Root:
+                return "Mateusz Buta";
+            case Section:
+                return "^dz\\.(?<id>\\d*\\p{Alpha}*)";
+            case Chapter:
+                return "^roz\\.(?<id>\\d*\\p{Alpha}*)";
+            case Branch:
+                return "^oddz\\.(?<id>[A-ZĘÓĄŚŁŻŹĆŃ ,]{5,})";
+            case Article:
+                return "^art\\.(?<id>\\d+\\p{Lower}*)";
+            case Passagge:
+                return "^ust\\.(?<id>\\d+\\p{Lower}*)";   //Ustęp oznacza się cyframi arabskimi z kropką bez nawiasu
+            case Point:
+                return "^pkt\\.(?<id>\\d+\\p{Lower}*)";   //Punkt oznacza się cyframi arabskimi z nawiasem z prawej strony
+            case Letter:
+                return "^lit\\.(?<id>\\p{Lower}+)";   //Wyliczenie w obrębie punktów (tzw. litery) oznacza się małymi literami alfabetu łacińskiego,
+            //z wyłączeniem liter właściwych tylko językowi polskiemu (ą, ć, ę, ł, ń, ó, ś, ż, ź), z nawiasem z prawej strony
+            default:
+                return super.toString();
+        }
+    }
+
+
+    public boolean isInLowers(ActComponent actComponent){
+        if(this.isLastOne())
+            return false;
+
+        for(EditorialUnit findingUnit : this.lowers())
+            if(actComponent.equals(findingUnit)
+                return  true;
+        return false;
+    }
+
+    public static boolean is(String s){
+        for(EditorialUnit findingUnit : EditorialUnit.values())
+            if(Pattern.matches(findingUnit.findRegex(),s))
+                return true;
+        return false;
+    }
+
+    public static EditorialUnit convert(String s) throws IllegalArgumentException{
+        for(EditorialUnit findingUnit : EditorialUnit.values())
+            if(Pattern.matches(findingUnit.findRegex(),s))
+                return findingUnit;
+
+        throw new IllegalArgumentException("Incorrect argument: " + s);
     }
 }

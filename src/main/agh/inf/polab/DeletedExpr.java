@@ -8,7 +8,8 @@ public enum DeletedExpr implements IHasRegex{
     data,
     rubbish,
     removedtext,
-    empty;
+    empty,
+    removedArticle;
 
     @Override
     public String removeRegex() {
@@ -23,6 +24,8 @@ public enum DeletedExpr implements IHasRegex{
                 return "\\(pominięt.*\\)";
             case empty:
                 return "";
+            case removedArticle:
+                return "^Art\\. \\d+\\p{Lower}*–\\d+\\p{Lower}*\\..*";
             default:
                 return super.toString();
         }
@@ -31,12 +34,10 @@ public enum DeletedExpr implements IHasRegex{
     @Override
     public String findRegex(){ return removeRegex() ;}
 
-    /*
     public static boolean is(String line){
         for (DeletedExpr delete : Arrays.asList(DeletedExpr.values()))
             if (Pattern.matches(delete.findRegex(),line))
                 return true;
         return false;
     }
-    */
 }
