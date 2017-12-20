@@ -157,7 +157,7 @@ public enum EditorialUnit implements IHasRegex{
             return false;
 
         for(EditorialUnit findingUnit : this.lowers())
-            if(actComponent.equals(findingUnit)
+            if(actComponent.equals(findingUnit))
                 return  true;
         return false;
     }

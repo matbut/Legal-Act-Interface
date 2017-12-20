@@ -33,18 +33,13 @@ public class ActParser {
 
     private void parseFirstLines() throws InputMismatchException {
         String DzU="Dz\\.U\\. \\d{4} Nr \\d+ poz\\. \\d+.*";
-        String line="";
 
-        if(!preParser.endOfFile()) {
-            line+=preParser.getLine();
-            preParser.clearLine();
-        }
         if(Pattern.matches(DzU,preParser.getLine()) && !preParser.endOfFile()){
-            line+="\n"+preParser.getLine();
+            act.setTitle(preParser.getLine());
             preParser.clearLine();
         }
-
-        for(int i=0;i<2 && !preParser.endOfFile();i++) {
+        String line="";
+        for(int i=0;i<3 && !preParser.endOfFile();i++) {
             line+="\n"+preParser.getLine();
             preParser.clearLine();
         }
@@ -76,7 +71,25 @@ public class ActParser {
             return;
 
         boolean restart=true;
+/*
+        while(EditorialUnit.is(preParser.getLine())){
+            EditorialUnit findingUnit = EditorialUnit.convert(preParser.getLine());
+            preParser.clearLine(findingUnit.removeRegex());
 
+            IdentifiedEditorialUnit id = new IdentifiedEditorialUnit(findingUnit, m.group("id"));
+
+            ActComponent newActComp = new ActComponent(id);
+            actComp.addChild(newActComp);
+
+            //Po rozdziale konieczne jest wczytanie jego tytułu, aby nie pomylić go z oddziałem
+            if (findingUnit == EditorialUnit.Chapter && !preParser.endOfFile()) {
+                newActComp.setContent(preParser.getLine());
+                preParser.clearLine();
+            }
+            SearchUnit(newActComp);
+        }
+
+       */
         while(restart) {
             Iterator<EditorialUnit> iterator = Arrays.asList(actComp.id.editUnitType.lowers()).iterator();
 
@@ -106,6 +119,7 @@ public class ActParser {
                 }
             }
         }
+
     }
 }
 
