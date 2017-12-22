@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Legal-Act-Interface:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Legal_Act_Interface_jar</output-path>
+    <root id="archive" name="Legal-Act-Interface.jar">
+      <element id="module-output" name="Legal-Act-Interface" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/resources/picocli-2.1.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
