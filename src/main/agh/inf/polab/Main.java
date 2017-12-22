@@ -11,44 +11,48 @@ public class Main {
         try {
             ProgSpecyfication progSpec = new ProgSpecyfication();
             CommandLine commandLine = new CommandLine(progSpec);
-            commandLine.registerConverter(IdentifiedEditorialUnit.class, s -> Converter.fromComandLineToIdEditUnit(s));
+            commandLine.registerConverter(IdentifiedEditorialUnit.class, s -> ProgSpecyfication.fromComandLineToIdEditUnit(s));
             commandLine.parse(args);
 
-            if (progSpec.usageHelpRequested)
+            if (progSpec.isUsageHelpRequested())
                 commandLine.usage(System.err);
 
-            if (progSpec.versionRequested)
+            if (progSpec.isVersionRequested())
                 commandLine.printVersionHelp(System.err, CommandLine.Help.Ansi.AUTO);
 
-            ActParser actParser = new ActParser(progSpec.inputFile);
+            progSpec.check();
+
+            ActParser actParser = new ActParser(progSpec.getInputFile());
             Act act = actParser.parse();
 
             ActInterface actInterface = new ActInterface(act);
 
-            if(progSpec.tableOfContent){
-                if(progSpec.path!=null)
-                    System.out.println(actInterface.printTableOfContent(progSpec.path));
+            if(progSpec.isTableOfContent()){
+                if(progSpec.getPath()!=null)
+                    System.out.println(actInterface.printTableOfContent(progSpec.getPath()));
                 else
                     System.out.println(actInterface.printTableOfContent());
             }
-            if(progSpec.content){
-                if(progSpec.path!=null)
-                    System.out.println(actInterface.printContent(progSpec.path));
+            if(progSpec.isContent()){
+                if(progSpec.getPath()!=null)
+                    System.out.println(actInterface.printContent(progSpec.getPath()));
                 else
                     System.out.println(actInterface.printContent());
             }
-            if(progSpec.range!=null){
-                System.out.println(actInterface.printContent(progSpec.range[0],progSpec.range[1]));
+            if(progSpec.getRange()!=null){
+                System.out.println(actInterface.printContent(progSpec.getRange()[0],progSpec.getRange()[1]));
             }
 
         }catch(FileNotFoundException  e){
-            System.out.println("File not found. "+e);
+            System.out.println("File not found. "+e.getMessage());
         }catch(IllegalArgumentException e) {
-            System.out.println("Illegal argument. " + e);
+            System.out.println("Illegal argument. "+e.getMessage());
         }catch(InputMismatchException e){
-            System.out.println("InputMismatchException. "+e);
+            System.out.println("Input mismatch. "+e.getMessage());
         }catch(NoSuchElementException e){
-            System.out.println("NoSuchElementException. "+e);
+            System.out.println("NoSuch element. "+e.getMessage());
+        }catch(CommandLine.ParameterException e){
+            System.out.println("Paramteter "+e.getMessage());
         }
     }
 

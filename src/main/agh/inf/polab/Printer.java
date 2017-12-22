@@ -11,6 +11,10 @@ public abstract class Printer extends Traversal {
         strBuilder=new StringBuilder(printAct());
     }
 
+    public void addText(String text){
+        strBuilder.append(text);
+    }
+
     public void add(ActComponent actComponent){
         traverseComponent(actComponent);
     }

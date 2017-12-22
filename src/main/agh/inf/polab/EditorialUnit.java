@@ -18,7 +18,7 @@ public enum EditorialUnit{
     public String toString() {
         switch (this) {
             case Root:
-                return "Ustawa";
+                return "";
             case Section:
                 return "Dział";
             case Chapter:
@@ -77,9 +77,9 @@ public enum EditorialUnit{
             case Root:
                 return "Mateusz Buta"; // :)
             case Section:
-                return "^dz\\.(?<id>\\d*\\p{Alpha}*)";
+                return "^dz\\.(?<id>\\d*[IVXLC]*)";
             case Chapter:
-                return "^roz\\.(?<id>\\d*\\p{Alpha}*)";
+                return "^roz\\.(?<id>\\d*[IVXLC]*)";
             case Branch:
                 return "^oddz\\.(?<id>[A-ZĘÓĄŚŁŻŹĆŃ ,]{5,})";
             case Article:
@@ -128,9 +128,7 @@ public enum EditorialUnit{
     public boolean isLastOne(){
         return this.lowers()==null;
     }
-    public boolean isInLowers(EditorialUnit parent){
-        if(parent.isLastOne())
-            return false;
-        return parent.lowers().contains(this);
+    public boolean isInLowers(EditorialUnit parent) {
+        return !parent.isLastOne() && parent.lowers().contains(this);
     }
 }

@@ -50,6 +50,6 @@ public class IdentifiedEditorialUnit{
 
         }
         throw new IllegalArgumentException("Incorrect argument: " + s);
-
     }
+
 }

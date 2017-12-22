@@ -45,9 +45,15 @@ public class ActInterface {
         return printerContent.get();
     }
     public String printContent(Collection<IdentifiedEditorialUnit> path){
+
+
         Searcher searcher = new Searcher(act);
         ActComponent actComponent=searcher.search(act.getArticles(),path);
-        return printContent(actComponent);
+
+        PrinterContent printerContent=new PrinterContent(act);
+        printerContent.addText(searcher.getActualpath());
+        printerContent.add(actComponent);
+        return printerContent.get();
     }
 
     public String printTableOfContent(ActComponent actComponent){
