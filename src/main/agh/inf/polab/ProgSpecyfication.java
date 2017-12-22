@@ -1,72 +1,32 @@
 package agh.inf.polab;
 
+import picocli.CommandLine;
+import picocli.CommandLine.Option;
+import picocli.CommandLine.Parameters;
+import java.io.File;
+import java.util.*;
+
+@CommandLine.Command(name = "Legal Act Interface", footer = "Copyright(c) 2017",
+        description = "blabla")
+
 public class ProgSpecyfication {
-    private String fileName;
-    private boolean PrintTableOfContents=false;
-    private boolean PrintContentOfPath=false;
-    private EditorialUnit[] path=null;
 
+    @Option(names = { "-t", "--table" }, description = "print table of content")
+    public boolean tableOfContent = false;
 
-    public ProgSpecyfication(String[] args) throws IllegalArgumentException{
-        if(args.length==0) {
-            System.out.println("Help: Allowed arguments:");
-            // spis treści ustawy
-            // spis treści działu o numerze
+    @Option(names = { "-c", "--content" }, description = "print content")
+    public boolean content = false;
 
-            // wyświetlanie specyficznych elementów składowych artykułu
-            // treści artykułu o określonym numerze lub zakresu artykułów
+    @Option(names = { "-h", "--help" }, usageHelp = true, description = "display a help message")
+    public boolean usageHelpRequested = false;
 
-            // -t - Print Table Of Contents;
-            // -a - Print All;
+    @Option(names = { "-r", "--range" },split = "-", description = "print specified range")
+    IdentifiedEditorialUnit range[];
 
-            // -ap - Print All in Path;
-            // -ar - Print All in range
-            // -tp - Print Table Of Contents; in Path
+    @Option(names = { "-p", "--path" },split = ",", description = "specify path splited by ','")
+    Collection<IdentifiedEditorialUnit> path;
 
-            return;
-        }
-
-        if(args.length<2)
-            throw new IllegalArgumentException("Too less arguments");
-
-        this.fileName=args[1];
-
-
-        /*
-        if(args.length<3){
-            if(args[1].equals("-a")){
-                this.PrintAll=true;
-                return;
-            }
-            if(args[1].equals("-t")){
-                this.PrintTableOfContents=true;
-                return;
-            }
-            if(args[1].equals("-p"))
-                throw new IllegalArgumentException("Lack of path");
-            throw new IllegalArgumentException("Incorrect second argument");
-        }
-
-        if(!args[1].equals("-p"))
-            throw new IllegalArgumentException("Incorrect second argument");
-
-        this.path= new EditorialUnit[args.length-2];
-        for(int i=2;i<args.length;i++){
-            EditorialUnit editUnit=EditorialUnit.fromString(args[i]);
-            if(editUnit!=null)
-                this.path[i-2]=editUnit;
-            else
-                throw new IllegalArgumentException("Incorrect "+i+" argument");
-        }
-        */
-
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-
-
+    @Parameters(arity = "1", paramLabel = "FILE", description = "file to process.")
+    public File inputFile;
 }
 

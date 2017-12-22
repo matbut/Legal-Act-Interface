@@ -1,14 +1,25 @@
 package agh.inf.polab;
 
-public class PrinterAll extends Printer {
+public class PrinterContent extends Printer {
+    private  boolean printPreamble=false;
 
+    public PrinterContent(Act act) {
+        super(act);
+    }
 
     @Override
-    protected String printAct(Act act) {
-        String line=act.getTitle()+lineSeparator;
-        if(act.getPreamble()!=null)
-            line+=act.getPreamble()+lineSeparator;
+    public void add(ActComponent actComponent){
+        if(actComponent.idEditUnit.type==EditorialUnit.Root)
+            printPreamble=true;
 
+        super.add(actComponent);
+    }
+
+    @Override
+    protected String printAct() {
+        String line=act.getTitle()+lineSeparator;
+        if(printPreamble && act.getPreamble()!=null)
+            line+=act.getPreamble()+lineSeparator;
         return line;
     }
 
@@ -18,7 +29,7 @@ public class PrinterAll extends Printer {
         String tab = actComponent.idEditUnit.type.toTabulation();
         String line="";
 
-        if(actComponent.idEditUnit.type !=EditorialUnit.Root)
+        if(actComponent.idEditUnit.type!=EditorialUnit.Root)
             line+=tab+actComponent.idEditUnit+lineSeparator;
 
         if(actComponent.getContent()!=null)

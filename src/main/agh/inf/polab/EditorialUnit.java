@@ -1,8 +1,5 @@
 package agh.inf.polab;
 
-
-import java.util.regex.Pattern;
-
 public enum EditorialUnit implements IHasRegex{
     Root,
 
@@ -15,35 +12,31 @@ public enum EditorialUnit implements IHasRegex{
     Letter;         // litera
 
     public String toTabulation() {
-        String line="";
+        StringBuilder strBuilder=new StringBuilder();
         for(int i=0;i<this.ordinal();i++)
-            line+="  ";
-        return line;
-    }
-
-    public boolean isInTableOfContent(){
-        return this.ordinal()<EditorialUnit.Article.ordinal();
+            strBuilder.append("  ");
+        return strBuilder.toString();
     }
 
     @Override
     public String toString() {
         switch (this) {
             case Root:
-                return "";
+                return "Ustawa";
             case Section:
-                return "dział ";
+                return "Dział";
             case Chapter:
-                return "rozdział ";
+                return "Rozdział";
             case Branch:
-                return "oddział ";
+                return "Oddział";
             case Article:
-                return "art.";
+                return "Art.";
             case Passagge:
-                return "ust.";
+                return "Ust.";
             case Point:
-                return "pkt.";
+                return "Pkt.";
             case Letter:
-                return "lit.";
+                return "Lit.";
             default:
                 return super.toString();
         }
@@ -73,60 +66,16 @@ public enum EditorialUnit implements IHasRegex{
                 return super.toString();
         }
     }
-
     @Override
     public String findRegex(){
         if (this==Branch)
             return this.removeRegex();
         return this.removeRegex()+".*";
     }
-
-    public EditorialUnit higher(){
-        if(this.ordinal() > 0 )
-            return  EditorialUnit.values()[(this.ordinal()-1)];
-        else
-            return null;
-    }
-    public EditorialUnit[] lowers(){
-        switch (this){
-            case Root:{
-                EditorialUnit[] lowers = {Section,Chapter,Article};
-                return lowers;
-            }
-            case Section:{
-                EditorialUnit[] lowers = {Chapter,Article};
-                return lowers;
-            }
-            case Chapter:{
-                EditorialUnit[] lowers = {Branch,Article};
-                return lowers;
-            }
-            case Article:{
-                EditorialUnit[] lowers = {Passagge,Point};
-                return lowers;
-            }
-            case Letter:
-                return null;
-            default:{
-                EditorialUnit[] lowers = {lower()};
-                return lowers;
-            }
-        }
-    }
-    public EditorialUnit lower(){
-        if (this.ordinal() < EditorialUnit.values().length-1)
-            return EditorialUnit.values()[(this.ordinal()+1)];
-        else
-            return null;
-    }
-    public boolean isLastOne(){
-        return this.lowers()==null;
-    }
-
     public String optionParserRegex() {
         switch (this) {
             case Root:
-                return "Mateusz Buta";
+                return "Mateusz Buta"; // :)
             case Section:
                 return "^dz\\.(?<id>\\d*\\p{Alpha}*)";
             case Chapter:
@@ -136,18 +85,49 @@ public enum EditorialUnit implements IHasRegex{
             case Article:
                 return "^art\\.(?<id>\\d+\\p{Lower}*)";
             case Passagge:
-                return "^ust\\.(?<id>\\d+\\p{Lower}*)";   //Ustęp oznacza się cyframi arabskimi z kropką bez nawiasu
+                return "^ust\\.(?<id>\\d+\\p{Lower}*)";
             case Point:
-                return "^pkt\\.(?<id>\\d+\\p{Lower}*)";   //Punkt oznacza się cyframi arabskimi z nawiasem z prawej strony
+                return "^pkt\\.(?<id>\\d+\\p{Lower}*)";
             case Letter:
-                return "^lit\\.(?<id>\\p{Lower}+)";   //Wyliczenie w obrębie punktów (tzw. litery) oznacza się małymi literami alfabetu łacińskiego,
-            //z wyłączeniem liter właściwych tylko językowi polskiemu (ą, ć, ę, ł, ń, ó, ś, ż, ź), z nawiasem z prawej strony
+                return "^lit\\.(?<id>\\p{Lower}+)";
             default:
                 return super.toString();
         }
     }
 
+    public EditorialUnit higher(){
+        if(this.ordinal() > 0 )
+            return  EditorialUnit.values()[(this.ordinal()-1)];
+        else
+            return null;
+    }
+    public EditorialUnit lower(){
+        if (this.ordinal() < EditorialUnit.values().length-1)
+            return EditorialUnit.values()[(this.ordinal()+1)];
+        else
+            return null;
+    }
+    public EditorialUnit[] lowers(){
+        switch (this){
+            case Root:
+                return new EditorialUnit[] {Section,Chapter,Article};
+            case Section:
+                return new EditorialUnit[] {Chapter,Article};
+            case Chapter:
+                return new EditorialUnit[] {Branch,Article};
+            case Article:
+                return new EditorialUnit[] {Passagge,Point};
+            case Letter:
+                return null;
+            default:{
+                return new EditorialUnit[] {lower()};
+            }
+        }
+    }
 
+    public boolean isLastOne(){
+        return this.lowers()==null;
+    }
     public boolean isInLowers(EditorialUnit parent){
         if(parent.isLastOne())
             return false;
@@ -157,21 +137,4 @@ public enum EditorialUnit implements IHasRegex{
                 return  true;
         return false;
     }
-
-    public static boolean is(String s){
-        for(EditorialUnit findingUnit : EditorialUnit.values())
-            if(Pattern.matches(findingUnit.findRegex(),s))
-                return true;
-        return false;
-    }
-
-    public static EditorialUnit convert(String s) throws IllegalArgumentException{
-        for(EditorialUnit findingUnit : EditorialUnit.values())
-            if(Pattern.matches(findingUnit.findRegex(),s))
-                return findingUnit;
-
-        throw new IllegalArgumentException("Incorrect argument: " + s);
-    }
-
-
 }

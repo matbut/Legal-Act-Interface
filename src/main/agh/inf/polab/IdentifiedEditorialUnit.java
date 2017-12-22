@@ -8,14 +8,14 @@ public class IdentifiedEditorialUnit{
     public final String id;
 
 
-    public IdentifiedEditorialUnit(EditorialUnit type, String editUnitNum) {
+    public IdentifiedEditorialUnit(EditorialUnit type, String id) {
         this.type = type;
-        this.id = editUnitNum;
+        this.id = id;
     }
 
     @Override
     public String toString(){
-        return this.type.toString() + this.id;
+        return this.type.toString() + ' ' + this.id;
     }
 
     @Override
@@ -25,10 +25,14 @@ public class IdentifiedEditorialUnit{
 
         IdentifiedEditorialUnit that = (IdentifiedEditorialUnit) o;
 
-        if (type != that.type) return false;
-        return id.equals(that.id);
+        return type == that.type && id.equals(that.id);
     }
 
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
     public static boolean is(String line){
         for (EditorialUnit editUnit : EditorialUnit.values())
             if (Pattern.matches(editUnit.findRegex(),line))
@@ -48,17 +52,4 @@ public class IdentifiedEditorialUnit{
         throw new IllegalArgumentException("Incorrect argument: " + s);
 
     }
-
-    public static IdentifiedEditorialUnit convert2(String s) throws IllegalArgumentException{
-        for(EditorialUnit findingUnit : EditorialUnit.values()){
-            Pattern p = Pattern.compile(findingUnit.optionParserRegex());
-            Matcher m = p.matcher(s);
-
-            if(m.matches())
-                return new IdentifiedEditorialUnit(findingUnit, m.group("id"));
-
-        }
-        throw new IllegalArgumentException("Incorrect argument: " + s);
-    }
-
 }

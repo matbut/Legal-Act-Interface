@@ -35,7 +35,7 @@ public class ActParser {
         String DzU="Dz\\.U\\. \\d{4} Nr \\d+ poz\\. \\d+.*";
 
         if(Pattern.matches(DzU,preParser.getLine()) && !preParser.endOfFile()){
-            act.setTitle(preParser.getLine());
+            act.setJournalOfLaws(preParser.getLine());
             preParser.clearLine();
         }
         String line="";
@@ -60,7 +60,7 @@ public class ActParser {
     private void getContent(ActComponent actComp){
 
         StringBuilder strbuilder=new StringBuilder();
-        while(!preParser.endOfFile() && !EditorialUnit.is(preParser.getLine())) {
+        while(!preParser.endOfFile() && !IdentifiedEditorialUnit.is(preParser.getLine())) {
             strbuilder.append(preParser.getLine());
             preParser.clearLine();
         }
@@ -71,7 +71,7 @@ public class ActParser {
         if(actComp.idEditUnit.type.isLastOne())
             return;
 
-        while(EditorialUnit.is(preParser.getLine()) &&
+        while(IdentifiedEditorialUnit.is(preParser.getLine()) &&
             (IdentifiedEditorialUnit.convert(preParser.getLine()).type.isInLowers(actComp.idEditUnit.type))){
 
             IdentifiedEditorialUnit idEditUnit = IdentifiedEditorialUnit.convert(preParser.getLine());
@@ -85,8 +85,8 @@ public class ActParser {
                 newActComp.setContent(preParser.getLine());
                 preParser.clearLine();
             }
-            SearchUnit(newActComp);
 
+            SearchUnit(newActComp);
 
         }
 /*

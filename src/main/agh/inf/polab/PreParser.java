@@ -42,37 +42,4 @@ public class PreParser {
         if (Pattern.matches(".*-$",line))
             line = line.replaceFirst("-$", "");
     }
-
-    /*
-    public boolean isEditorialUnit(){
-        return matchesTo(EditorialUnit.values());
-    }
-    private boolean isDeletedExpr(){
-        return matchesTo(DeletedExpr.values());
-    }
-    private boolean matchesTo(IHasRegex[] collection) {
-        for (IHasRegex element : collection)
-            if (Pattern.matches(element.findRegex(), line)) {
-                return true;
-            }
-        return false;
-    }
-    */
-
-        /*
-        private LinkedList<IdentifiedEditorialUnit> zip(List<EditorialUnit> editUnitList, List<String> idList){
-        if(editUnitList.size()!=idList.size())
-            throw new IllegalArgumentException("Illegal path");
-
-        LinkedList<IdentifiedEditorialUnit> idEditUnitList=new LinkedList<>();
-
-        Iterator<EditorialUnit> editUnitIterator = editUnitList.iterator();
-        Iterator<String> idIterator = idList.iterator();
-
-        while(editUnitIterator.hasNext())
-            idEditUnitList.add(new IdentifiedEditorialUnit(editUnitIterator.next(),idIterator.next()));
-
-        return idEditUnitList;
-
-     */
 }

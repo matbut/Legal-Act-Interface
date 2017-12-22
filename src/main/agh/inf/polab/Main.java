@@ -4,77 +4,52 @@ import picocli.CommandLine;
 
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 public class Main {
     public static void main(String[] args){
         try {
-
-
-            OptionParser app = new OptionParser();
-            CommandLine commandLine = new CommandLine(app);
-            commandLine.registerConverter(IdentifiedEditorialUnit.class, s -> IdentifiedEditorialUnit.convert2(s));
-
+            ProgSpecyfication progSpec = new ProgSpecyfication();
+            CommandLine commandLine = new CommandLine(progSpec);
+            commandLine.registerConverter(IdentifiedEditorialUnit.class, s -> Converter.fromComandLineToIdEditUnit(s));
             commandLine.parse(args);
 
+            if (progSpec.usageHelpRequested)
+                CommandLine.usage(new ProgSpecyfication(),System.err);
 
-            assert  app.tableOfContent;
-            assert  app.inputFile != null;
-
-            if (app.usageHelpRequested) {
-                CommandLine.usage(new OptionParser(),System.err);
-            }
-
-            ActParser actParser = new ActParser(app.inputFile);
+            ActParser actParser = new ActParser(progSpec.inputFile);
             Act act = actParser.parse();
 
-            if(app.tableOfContent){
-                Printer printer= new PrinterTableOfContent();
-                System.out.println(printer.print(act));
-            }
-            if(app.content){
-                Printer printer = new PrinterAll();
-                System.out.println(printer.print(act));
-            }
-            if(app.path!=null){
-                SearchContent searchContent=new SearchContent();
-                System.out.println(searchContent.search(act,app.path).idEditUnit);
-            }
-            if(app.range!=null){
-                PrinterRange printer = new PrinterRange();
-                System.out.println(printer.print(act,app.range.getFirst(),app.range.getLast()));
-            }
+            ActInterface actInterface = new ActInterface(act);
 
-
-            /*
-            LinkedList<IdentifiedEditorialUnit> path = new LinkedList<>();
-            path.add(new IdentifiedEditorialUnit(EditorialUnit.Article,"4"));
-            path.add(new IdentifiedEditorialUnit(EditorialUnit.Passagge,"1"));
-            */
-
-            //SearchContent searchContent = new SearchContent();
-            //ActComponent actComponent=searchContent.search(act,app.path);
-            //System.out.println(printer.print(act,actComponent));
-
-            /*
-            LinkedList<IdentifiedEditorialUnit> path2 = new LinkedList<>();
-            path2.add(new IdentifiedEditorialUnit(EditorialUnit.Chapter,"II"));
-            */
+            if(progSpec.tableOfContent){
+                if(progSpec.path!=null)
+                    System.out.println(actInterface.printTableOfContent(progSpec.path));
+                else
+                    System.out.println(actInterface.printTableOfContent());
+            }
+            if(progSpec.content){
+                if(progSpec.path!=null)
+                    System.out.println(actInterface.printContent(progSpec.path));
+                else
+                    System.out.println(actInterface.printContent());
+            }
+            if(progSpec.range!=null){
+                System.out.println(actInterface.printContent(progSpec.range[0],progSpec.range[1]));
+            }
 
         }catch(FileNotFoundException  e){
-            System.out.println("File not found");
-            e.printStackTrace();
-
+            System.out.println("File not found. "+e);
+            //e.printStackTrace();
         }catch(IllegalArgumentException e) {
-            System.out.println("Illegal argument " + e);
-            e.printStackTrace();
+            System.out.println("Illegal argument. " + e);
+            //e.printStackTrace();
         }catch(InputMismatchException e){
-            System.out.println("InputMismatchException");
-            e.printStackTrace();
+            System.out.println("InputMismatchException. "+e);
+            //e.printStackTrace();
         }catch(NoSuchElementException e){
-            System.out.println("NoSuchElementException");
-            e.printStackTrace();
+            System.out.println("NoSuchElementException. "+e);
+            //e.printStackTrace();
         }
     }
 
