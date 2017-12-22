@@ -2,10 +2,7 @@ package agh.inf.polab;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.InputMismatchException;
-import java.util.Iterator;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ActParser {

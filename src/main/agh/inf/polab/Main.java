@@ -15,7 +15,10 @@ public class Main {
             commandLine.parse(args);
 
             if (progSpec.usageHelpRequested)
-                CommandLine.usage(new ProgSpecyfication(),System.err);
+                commandLine.usage(System.err);
+
+            if (progSpec.versionRequested)
+                commandLine.printVersionHelp(System.err, CommandLine.Help.Ansi.AUTO);
 
             ActParser actParser = new ActParser(progSpec.inputFile);
             Act act = actParser.parse();
@@ -40,16 +43,12 @@ public class Main {
 
         }catch(FileNotFoundException  e){
             System.out.println("File not found. "+e);
-            //e.printStackTrace();
         }catch(IllegalArgumentException e) {
             System.out.println("Illegal argument. " + e);
-            //e.printStackTrace();
         }catch(InputMismatchException e){
             System.out.println("InputMismatchException. "+e);
-            //e.printStackTrace();
         }catch(NoSuchElementException e){
             System.out.println("NoSuchElementException. "+e);
-            //e.printStackTrace();
         }
     }
 

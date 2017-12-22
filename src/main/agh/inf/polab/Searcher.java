@@ -1,27 +1,26 @@
 package agh.inf.polab;
 
-
 import java.util.*;
 
 public class Searcher extends Traversal{
     private String lineSeparator=System.getProperty("line.separator");
-    private Iterator<IdentifiedEditorialUnit> path;
     private ActComponent finded;
     private String actualpath="";
+    private Queue<IdentifiedEditorialUnit> path;
 
     public Searcher(Act act) {
         super(act);
     }
 
     public ActComponent search(ActComponent actComponent,Collection<IdentifiedEditorialUnit> path) {
-        this.path=path.iterator();
+        this.path=new LinkedList<>(path);
         traverseComponent(actComponent);
         return finded;
     }
 
     @Override
     protected boolean stopTraverseRoot(ActComponent root) {
-        return !path.hasNext();
+        return path.isEmpty();
     }
 
     @Override
@@ -31,12 +30,12 @@ public class Searcher extends Traversal{
 
     @Override
     protected Collection<ActComponent> traversedChild(ActComponent actComponent) {
-        IdentifiedEditorialUnit first = path.next();
-        finded=actComponent.getChilds().get(first) ;
+        finded=actComponent.getChilds().get(path.element()) ;
         if(finded==null)
-            throw new NoSuchElementException("'"+first+"' wasn't found in '"+actComponent.idEditUnit+"'. Got there by "+actualpath+"");
-        if(!finded.idEditUnit.equals(first))
-            throw new NoSuchElementException("'"+finded.idEditUnit+"' was found in '"+actComponent.idEditUnit+"' instead of '"+first+"'. Got there by "+actualpath+"");
+            throw new NoSuchElementException("'"+path.element()+"' wasn't found in '"+actComponent.idEditUnit+"'. Got there by "+actualpath+"");
+        if(!finded.idEditUnit.equals(path.element()))
+            throw new NoSuchElementException("'"+finded.idEditUnit+"' was found in '"+actComponent.idEditUnit+"' instead of '"+path.element()+"'. Got there by "+actualpath+"");
+        path.remove();
         return Collections.singleton(finded);
     }
 }

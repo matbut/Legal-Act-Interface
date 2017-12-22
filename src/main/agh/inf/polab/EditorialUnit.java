@@ -1,6 +1,10 @@
 package agh.inf.polab;
 
-public enum EditorialUnit implements IHasRegex{
+import java.util.Arrays;
+import java.util.Collection;
+
+
+public enum EditorialUnit{
     Root,
 
     Section,        // dział
@@ -11,14 +15,6 @@ public enum EditorialUnit implements IHasRegex{
     Point,          // punkt
     Letter;         // litera
 
-    public String toTabulation() {
-        StringBuilder strBuilder=new StringBuilder();
-        for(int i=0;i<this.ordinal();i++)
-            strBuilder.append("  ");
-        return strBuilder.toString();
-    }
-
-    @Override
     public String toString() {
         switch (this) {
             case Root:
@@ -41,8 +37,13 @@ public enum EditorialUnit implements IHasRegex{
                 return super.toString();
         }
     }
+    public String toTabulation() {
+        StringBuilder strBuilder=new StringBuilder();
+        for(int i=0;i<this.ordinal();i++)
+            strBuilder.append("  ");
+        return strBuilder.toString();
+    }
 
-    @Override
     public String removeRegex() {
         switch (this) {
             case Root:
@@ -66,7 +67,6 @@ public enum EditorialUnit implements IHasRegex{
                 return super.toString();
         }
     }
-    @Override
     public String findRegex(){
         if (this==Branch)
             return this.removeRegex();
@@ -107,20 +107,20 @@ public enum EditorialUnit implements IHasRegex{
         else
             return null;
     }
-    public EditorialUnit[] lowers(){
+    public Collection<EditorialUnit> lowers(){
         switch (this){
             case Root:
-                return new EditorialUnit[] {Section,Chapter,Article};
+                return Arrays.asList(Section,Chapter,Article);
             case Section:
-                return new EditorialUnit[] {Chapter,Article};
+                return Arrays.asList(Chapter,Article);
             case Chapter:
-                return new EditorialUnit[] {Branch,Article};
+                return  Arrays.asList(Branch,Article);
             case Article:
-                return new EditorialUnit[] {Passagge,Point};
+                return  Arrays.asList(Passagge,Point);
             case Letter:
                 return null;
             default:{
-                return new EditorialUnit[] {lower()};
+                return  Arrays.asList(lower());
             }
         }
     }
@@ -131,10 +131,6 @@ public enum EditorialUnit implements IHasRegex{
     public boolean isInLowers(EditorialUnit parent){
         if(parent.isLastOne())
             return false;
-
-        for(EditorialUnit findingUnit : parent.lowers())
-            if(this==findingUnit)
-                return  true;
-        return false;
+        return parent.lowers().contains(this);
     }
 }

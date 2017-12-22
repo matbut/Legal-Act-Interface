@@ -14,7 +14,6 @@ public abstract class Printer extends Traversal {
     public void add(ActComponent actComponent){
         traverseComponent(actComponent);
     }
-
     public String get(){
         return strBuilder.toString();
     }
@@ -27,7 +26,6 @@ public abstract class Printer extends Traversal {
     protected void processRoot(ActComponent root) {
         strBuilder.append(printRoot(root));
     }
-
     @Override
     protected Collection<ActComponent> traversedChild(ActComponent actComponent) {
         return actComponent.getChilds().values();

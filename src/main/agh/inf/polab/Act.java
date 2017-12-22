@@ -1,7 +1,5 @@
 package agh.inf.polab;
 
-import java.util.LinkedList;
-
 public class Act {
 
     private String title=null;
@@ -42,6 +40,5 @@ public class Act {
     public String getJournalOfLaws() {
         return journalOfLaws;
     }
-
 
 }

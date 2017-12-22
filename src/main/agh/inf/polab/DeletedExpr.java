@@ -3,7 +3,7 @@ package agh.inf.polab;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
-public enum DeletedExpr implements IHasRegex{
+public enum DeletedExpr {
     sejm,
     data,
     rubbish,
@@ -11,7 +11,7 @@ public enum DeletedExpr implements IHasRegex{
     empty,
     removedArticle;
 
-    @Override
+
     public String removeRegex() {
         switch (this) {
             case data:
@@ -30,8 +30,6 @@ public enum DeletedExpr implements IHasRegex{
                 return super.toString();
         }
     }
-
-    @Override
     public String findRegex(){ return removeRegex() ;}
 
     public static boolean is(String line){

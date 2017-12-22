@@ -1,13 +1,14 @@
 package agh.inf.polab;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class ActComponent{
-    public final IdentifiedEditorialUnit idEditUnit;
 
+    public final IdentifiedEditorialUnit idEditUnit;
     private String content=null;
     private LinkedHashMap<IdentifiedEditorialUnit,ActComponent> childs = new LinkedHashMap<>();
-
 
     public ActComponent(IdentifiedEditorialUnit id){
         this.idEditUnit = id;
