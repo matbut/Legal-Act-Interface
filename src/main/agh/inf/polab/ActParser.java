@@ -59,7 +59,6 @@ public class ActParser {
         StringBuilder strbuilder=new StringBuilder();
         while(!preParser.endOfFile() && !IdentifiedEditorialUnit.is(preParser.getLine())) {
             strbuilder.append(preParser.getLine());
-            strbuilder.append(' ');
             preParser.clearLine();
         }
         actComp.setContent(strbuilder.toString());

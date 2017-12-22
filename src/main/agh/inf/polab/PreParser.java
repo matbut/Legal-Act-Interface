@@ -41,5 +41,8 @@ public class PreParser {
 
         if (Pattern.matches(".*-$",line))
             line = line.replaceFirst("-$", "");
+        else
+            if(!line.isEmpty())
+                line+="";
     }
 }
