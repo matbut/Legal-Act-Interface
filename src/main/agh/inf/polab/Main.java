@@ -1,5 +1,7 @@
 package agh.inf.polab;
 
+import picocli.CommandLine;
+
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
@@ -9,47 +11,70 @@ public class Main {
     public static void main(String[] args){
         try {
 
-            ProgSpecyfication progSpec = new ProgSpecyfication(args);
-            ActParser actParser = new ActParser(progSpec.getFileName());
 
+            OptionParser app = new OptionParser();
+            CommandLine commandLine = new CommandLine(app);
+            commandLine.registerConverter(IdentifiedEditorialUnit.class, s -> IdentifiedEditorialUnit.convert2(s));
+
+            commandLine.parse(args);
+
+
+            assert  app.tableOfContent;
+            assert  app.inputFile != null;
+
+            if (app.usageHelpRequested) {
+                CommandLine.usage(new OptionParser(),System.err);
+            }
+
+            ActParser actParser = new ActParser(app.inputFile);
             Act act = actParser.parse();
 
-            PrinterAll printer = new PrinterAll();
-            System.out.println(printer.print(act));
+            if(app.tableOfContent){
+                Printer printer= new PrinterTableOfContent();
+                System.out.println(printer.print(act));
+            }
+            if(app.content){
+                Printer printer = new PrinterAll();
+                System.out.println(printer.print(act));
+            }
+            if(app.path!=null){
+                SearchContent searchContent=new SearchContent();
+                System.out.println(searchContent.search(act,app.path).idEditUnit);
+            }
+            if(app.range!=null){
+                PrinterRange printer = new PrinterRange();
+                System.out.println(printer.print(act,app.range.getFirst(),app.range.getLast()));
+            }
 
-            PrinterTableOfContent tprinter= new PrinterTableOfContent();
-            System.out.println(tprinter.print(act));
 
-
-
+            /*
             LinkedList<IdentifiedEditorialUnit> path = new LinkedList<>();
             path.add(new IdentifiedEditorialUnit(EditorialUnit.Article,"4"));
             path.add(new IdentifiedEditorialUnit(EditorialUnit.Passagge,"1"));
+            */
 
+            //SearchContent searchContent = new SearchContent();
+            //ActComponent actComponent=searchContent.search(act,app.path);
+            //System.out.println(printer.print(act,actComponent));
 
-            SearchContent searchContent = new SearchContent();
-            ActComponent actComponent=searchContent.search(act,path);
-            System.out.println(actComponent.id.toString());
-
+            /*
             LinkedList<IdentifiedEditorialUnit> path2 = new LinkedList<>();
             path2.add(new IdentifiedEditorialUnit(EditorialUnit.Chapter,"II"));
-
-
-            SearchTableOfContent searchTableOfContent = new SearchTableOfContent();
-            actComponent=searchTableOfContent.search(act,path2);
-            System.out.println(actComponent.id.toString());
-
+            */
 
         }catch(FileNotFoundException  e){
-            System.out.println("Nie znaleziono pliku");
+            System.out.println("File not found");
             e.printStackTrace();
+
         }catch(IllegalArgumentException e) {
-            System.out.println("Błędny argument " + e);
+            System.out.println("Illegal argument " + e);
             e.printStackTrace();
         }catch(InputMismatchException e){
-            System.out.println();
+            System.out.println("InputMismatchException");
+            e.printStackTrace();
         }catch(NoSuchElementException e){
-            System.out.println(e.getMessage());
+            System.out.println("NoSuchElementException");
+            e.printStackTrace();
         }
     }
 
