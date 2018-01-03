@@ -20,7 +20,10 @@ public class ActComponent{
     public void setContent(String content) {
         if(content.isEmpty())
             return;
-        this.content=content;
+        if(this.content == null)
+            this.content=content;
+        else
+            this.content+=content;
     }
 
     public String getContent(){

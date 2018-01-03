@@ -39,10 +39,10 @@ public class PreParser {
         while (scanner.hasNext() && DeletedExpr.is(line))
             line = scanner.nextLine();
 
-        if (Pattern.matches(".*-$",line))
-            line = line.replaceFirst("-$", "");
-        else
-            if(!line.isEmpty())
-                line+="";
+        if(!line.isEmpty() && !IdentifiedEditorialUnit.is(line))
+            if (Pattern.matches(".*-$",line))
+                line = line.replaceFirst("-$", "");
+            else
+                line+=" ";
     }
 }
