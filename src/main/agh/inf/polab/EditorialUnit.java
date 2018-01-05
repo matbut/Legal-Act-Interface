@@ -49,11 +49,11 @@ public enum EditorialUnit{
             case Root:
                 return "Mateusz Buta";
             case Section:
-                return "^DZIAŁ (?<id>\\d*\\p{Alpha}*)";
+                return "^DZIAŁ (?<id>\\d*\\p{Alpha}*) *";
             case Chapter:
-                return "^Rozdział (?<id>\\d*\\p{Alpha}*)";
+                return "^Rozdział (?<id>\\d*\\p{Alpha}*) *";
             case Branch:
-                return "(?!DZIAŁ .*\\b)^(?<id>[A-ZĘÓĄŚŁŻŹĆŃ ,]{5,})";
+                return "(?!DZIAŁ .*\\b)^(?<id>[A-ZĘÓĄŚŁŻŹĆŃ ,]{5,}) *";
             case Article:
                 return "^Art\\. (?<id>\\d+\\p{Lower}*)\\. *";
             case Passagge:
