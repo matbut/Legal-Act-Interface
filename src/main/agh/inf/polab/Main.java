@@ -52,7 +52,7 @@ public class Main {
         }catch(NoSuchElementException e){
             System.out.println("NoSuch element. "+e.getMessage());
         }catch(CommandLine.ParameterException e){
-            System.out.println("Paramteter "+e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
