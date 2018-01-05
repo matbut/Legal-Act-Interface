@@ -53,7 +53,7 @@ public enum EditorialUnit{
             case Chapter:
                 return "^Rozdział (?<id>\\d*\\p{Alpha}*) *";
             case Branch:
-                return "(?!DZIAŁ .*\\b)^(?<id>[A-ZĘÓĄŚŁŻŹĆŃ ,]{5,}) *";
+                return "(?!^DZIAŁ \\d*\\p{Alpha}* *)^(?<id>[\\p{Lu}\\p{Space}]{5,}) *";
             case Article:
                 return "^Art\\. (?<id>\\d+\\p{Lower}*)\\. *";
             case Passagge:

@@ -19,8 +19,8 @@ public class PrinterTableOfContent extends Printer {
 
     @Override
     protected String printRoot(ActComponent actComponent) {
-        String rangeSign="-";
-        String bigTab = "................................................................................";
+        String rangeSign="–";
+        String bigTab = ".......................................................................................";
         String heading = " SPIS TREŚCI ";
         String tab=actComponent.idEditUnit.type.toTabulation();
 
