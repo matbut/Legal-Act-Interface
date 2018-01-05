@@ -18,7 +18,7 @@ public enum EditorialUnit{
     public String toString() {
         switch (this) {
             case Root:
-                return "";
+                return "Ustawa";
             case Section:
                 return "Dział";
             case Chapter:
