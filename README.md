@@ -51,7 +51,7 @@ Shortcuts:
 - pkt. - punkt
 - lit. - litera
 
-Example specifying path and range:
+Examples of specifying path and range:
 ```
 -cp=art.2,ust.2a,pkt.3,lit.a
 -tp=dz.II,roz.3
