@@ -27,18 +27,20 @@ Legal-Act-Interface [-tp=<path>[,<path>]]...FILE
 Legal-Act-Interface [-cp=<path>[,<path>]]...FILE
 ```
 Parameters:
+```
       FILE                    file to process
-      
+```      
 Options:
-*  -t, --table                 print table of content
-*  -c, --content               print content
-*  -r, --range=<range>[-<range>]...
+```
+  -t, --table                 print table of content
+  -c, --content               print content
+  -r, --range=<range>[-<range>]...
                               print specified range of articles, splited by '-'
-*  -p, --path=<path>[,<path>]...
+  -p, --path=<path>[,<path>]...
                               expand -t,-c option by specifying path to printing component, splited by ','
-*  -h, --help                  display a help message
-*  -v, --version               print version information
-  
+  -h, --help                  display a help message
+  -v, --version               print version information
+```  
 Path and range should by specyfied by shortcuts.
 Remember to use roman numerals, like in original document.
 Shortcuts:
