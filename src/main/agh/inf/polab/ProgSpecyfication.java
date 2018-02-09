@@ -38,7 +38,7 @@ import java.util.regex.Pattern;
                 "  ust. - ustęp",
                 "  pkt. - punkt",
                 "  lit. - litera",
-                "%nExample specifying path and range:",
+                "%nExamples of specifying path and range:",
                 "  -cp=art.2,ust.2a,pkt.3,lit.a",
                 "  -tp=dz.II,roz.3",
                 "  -r=art.3-art.7",
