@@ -5,10 +5,10 @@ Works only for:
 - Poish Act on competition and consumer protection (uokik.txt)
 
 ## Table of Contents
-- [Features](#Features)
+- [Features](#features)
 - [Usage](#usage)
-- [Built-With](#Built-With)
-- [Author](#Author)
+- [Built-With](#built-with)
+- [Author](#author)
 
 ## Features
 * Prints content
