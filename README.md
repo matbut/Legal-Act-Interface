@@ -19,12 +19,27 @@ Works only for:
 
 ## Usage
 Also avaliable in usage help.
+Usage:
 ```
 Legal-Act-Interface [-cthv]...FILE
 Legal-Act-Interface [-r=<range>-<range>]...FILE
 Legal-Act-Interface [-tp=<path>[,<path>]]...FILE
 Legal-Act-Interface [-cp=<path>[,<path>]]...FILE
 ```
+Parameters:
+      FILE                    file to process
+      
+Options:
+  -t, --table                 print table of content
+  -c, --content               print content
+  -r, --range=<range>[-<range>]...
+                              print specified range of articles, splited by '-'.
+  -p, --path=<path>[,<path>]...
+                              expand -t,-c option by specifying path to
+                                printing component, splited by ','.
+  -h, --help                  display a help message
+  -v, --version               print version information
+  
 Path and range should by specyfied by shortcuts.
 Remember to use roman numerals, like in original document.
 Shortcuts:
@@ -36,16 +51,9 @@ Shortcuts:
 - lit. - litera
 
 Example specifying path and range:
-- Prints content specyfied by path
 ```
 -cp=art.2,ust.2a,pkt.3,lit.a
-```
-- Prints table of content specyfied by path
-```
 -tp=dz.II,roz.3
-```
-- Prints content specyfied by range of articles
-```
 -r=art.3-art.7
 ```                
 
