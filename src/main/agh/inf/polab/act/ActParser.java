@@ -1,13 +1,21 @@
-package agh.inf.polab;
+package agh.inf.polab.act;
+
+import agh.inf.polab.act.elements.EditorialUnit;
+import agh.inf.polab.act.elements.IdentifiedEditorialUnit;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.regex.Pattern;
 
+/**
+ * Parse act from text file by using preParser.
+ */
 public class ActParser {
     private PreParser preParser;
     private Act act=new Act();
+
+    //Avaliable public methods:
 
     public ActParser(File file) throws FileNotFoundException {
         preParser=new PreParser(file);
@@ -28,6 +36,8 @@ public class ActParser {
         return act;
     }
 
+    //private methods, parts of parser algorithm:
+
     private void parseFirstLines() throws InputMismatchException {
         String DzU="Dz\\.U\\. \\d{4} Nr \\d+ poz\\. \\d+.*";
 
@@ -44,6 +54,7 @@ public class ActParser {
             throw new InputMismatchException("To short file ");
         act.setTitle(line);
     }
+
     private void SearchUnit(ActComponent actComp){
 
         if(actComp.idEditUnit.type ==EditorialUnit.Article){
@@ -54,6 +65,7 @@ public class ActParser {
         FindUnits(actComp);
 
     }
+
     private void getContent(ActComponent actComp){
 
         StringBuilder strbuilder=new StringBuilder();
@@ -63,6 +75,7 @@ public class ActParser {
         }
         actComp.setContent(strbuilder.toString());
     }
+
     private void FindUnits(ActComponent actComp) {
 
         if(actComp.idEditUnit.type.isLastOne())

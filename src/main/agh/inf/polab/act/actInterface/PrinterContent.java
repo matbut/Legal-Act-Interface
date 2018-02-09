@@ -1,5 +1,12 @@
-package agh.inf.polab;
+package agh.inf.polab.act.actInterface;
 
+import agh.inf.polab.act.elements.EditorialUnit;
+import agh.inf.polab.act.Act;
+import agh.inf.polab.act.ActComponent;
+
+/**
+ * Prints content of act component
+ */
 public class PrinterContent extends Printer {
     private  boolean printPreamble=false;
 
@@ -7,16 +14,18 @@ public class PrinterContent extends Printer {
         super(act);
     }
 
+    //Specyfying printing methods
+
     @Override
     public void add(ActComponent actComponent){
-        if(actComponent.idEditUnit.type==EditorialUnit.Root)
+        if(actComponent.idEditUnit.type== EditorialUnit.Root)
             printPreamble=true;
 
         super.add(actComponent);
     }
 
     @Override
-    protected String printAct() {
+    String printAct() {
         String line=act.getTitle()+lineSeparator;
         if(printPreamble && act.getPreamble()!=null)
             line+=act.getPreamble()+lineSeparator;
@@ -24,7 +33,7 @@ public class PrinterContent extends Printer {
     }
 
     @Override
-    protected String printRoot(ActComponent actComponent) {
+    String printRoot(ActComponent actComponent) {
 
         String tab = actComponent.idEditUnit.type.toTabulation();
         String line="";

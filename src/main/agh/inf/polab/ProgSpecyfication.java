@@ -1,5 +1,7 @@
 package agh.inf.polab;
 
+import agh.inf.polab.act.elements.EditorialUnit;
+import agh.inf.polab.act.elements.IdentifiedEditorialUnit;
 import picocli.CommandLine;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
@@ -7,7 +9,6 @@ import java.io.File;
 import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
 
 @CommandLine.Command(
         sortOptions = false,
@@ -44,7 +45,7 @@ import java.util.regex.Pattern;
                 "%nCopyright(c) 2017%n"
         })
 
-public class ProgSpecyfication {
+class ProgSpecyfication {
 
     @Option(names = { "-t", "--table" }, description = "print table of content")
     private boolean tableOfContent = false;
@@ -67,7 +68,7 @@ public class ProgSpecyfication {
     @Parameters(arity = "1", paramLabel = "FILE", description = "file to process")
     private File inputFile;
 
-    public void check(){
+    void check(){
         if(range!=null && range.length!=2)
             throw new IllegalArgumentException("Range isn't correctly specified.");
         if(path!=null && !content && !tableOfContent)
@@ -78,7 +79,7 @@ public class ProgSpecyfication {
             throw new IllegalArgumentException("File isn't specified.");
     }
 
-    public static IdentifiedEditorialUnit fromComandLineToIdEditUnit(String s) throws IllegalArgumentException {
+    static IdentifiedEditorialUnit fromComandLineToIdEditUnit(String s) throws IllegalArgumentException {
         for (EditorialUnit findingUnit : EditorialUnit.values()) {
             Pattern p = Pattern.compile(findingUnit.optionParserRegex());
             Matcher m = p.matcher(s);
@@ -90,25 +91,33 @@ public class ProgSpecyfication {
         throw new IllegalArgumentException("Incorrect argument: " + s);
     }
 
-    public boolean isTableOfContent() {
+    // Getters
+
+    boolean isTableOfContent() {
         return tableOfContent;
     }
-    public boolean isContent() {
+
+    boolean isContent() {
         return content;
     }
-    public IdentifiedEditorialUnit[] getRange() {
+
+    IdentifiedEditorialUnit[] getRange() {
         return range;
     }
-    public Collection<IdentifiedEditorialUnit> getPath() {
+
+    Collection<IdentifiedEditorialUnit> getPath() {
         return path;
     }
-    public boolean isUsageHelpRequested() {
+
+    boolean isUsageHelpRequested() {
         return usageHelpRequested;
     }
-    public boolean isVersionRequested() {
+
+    boolean isVersionRequested() {
         return versionRequested;
     }
-    public File getInputFile() {
+
+    File getInputFile() {
         return inputFile;
     }
 }

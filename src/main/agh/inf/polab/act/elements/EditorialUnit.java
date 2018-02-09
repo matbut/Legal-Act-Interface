@@ -1,12 +1,14 @@
-package agh.inf.polab;
+package agh.inf.polab.act.elements;
 
 import java.util.Arrays;
 import java.util.Collection;
 
+/**
+ * Represents editorial units and hierarchy.
+ */
 
 public enum EditorialUnit{
     Root,
-
     Section,        // dział
     Chapter,        // rozdział
     Branch,         // oddział
@@ -37,12 +39,15 @@ public enum EditorialUnit{
                 return super.toString();
         }
     }
+
     public String toTabulation() {
         StringBuilder strBuilder=new StringBuilder();
         for(int i=0;i<this.ordinal();i++)
             strBuilder.append("  ");
         return strBuilder.toString();
     }
+
+    //Methods for parser:
 
     public String removeRegex() {
         switch (this) {
@@ -67,11 +72,13 @@ public enum EditorialUnit{
                 return super.toString();
         }
     }
+
     public String findRegex(){
         if (this==Branch)
             return this.removeRegex();
         return this.removeRegex()+".*";
     }
+
     public String optionParserRegex() {
         switch (this) {
             case Root:
@@ -95,18 +102,23 @@ public enum EditorialUnit{
         }
     }
 
+    // Methods to set up a hierarchy
+    // It's important that hierarchy is not simple.
+
     public EditorialUnit higher(){
         if(this.ordinal() > 0 )
             return  EditorialUnit.values()[(this.ordinal()-1)];
         else
             return null;
     }
+
     public EditorialUnit lower(){
         if (this.ordinal() < EditorialUnit.values().length-1)
             return EditorialUnit.values()[(this.ordinal()+1)];
         else
             return null;
     }
+
     public Collection<EditorialUnit> lowers(){
         switch (this){
             case Root:
@@ -125,9 +137,12 @@ public enum EditorialUnit{
         }
     }
 
+    // Auxiliary methods resulting from hierarchy
+
     public boolean isLastOne(){
         return this.lowers()==null;
     }
+
     public boolean isInLowers(EditorialUnit parent) {
         return !parent.isLastOne() && parent.lowers().contains(this);
     }

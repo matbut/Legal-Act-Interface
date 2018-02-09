@@ -1,24 +1,32 @@
-package agh.inf.polab;
+package agh.inf.polab.act.actInterface;
+
+import agh.inf.polab.act.elements.EditorialUnit;
+import agh.inf.polab.act.Act;
+import agh.inf.polab.act.ActComponent;
 
 import java.util.Collection;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-
+/**
+ * Prints table of content of act component
+ */
 public class PrinterTableOfContent extends Printer {
 
     public PrinterTableOfContent(Act act) {
         super(act);
     }
 
+    //Specyfying printing methods
+
     @Override
-    protected String printAct() {
+    String printAct() {
         return act.getTitle()+lineSeparator;
     }
 
     @Override
-    protected String printRoot(ActComponent actComponent) {
+    String printRoot(ActComponent actComponent) {
         String rangeSign="–";
         String bigTab = ".......................................................................................";
         String heading = " SPIS TREŚCI ";
@@ -42,16 +50,19 @@ public class PrinterTableOfContent extends Printer {
     }
 
     @Override
-    protected Collection<ActComponent> traversedChild(ActComponent actComponent) {
+    Collection<ActComponent> traversedChild(ActComponent actComponent) {
         Stream<ActComponent> childs = actComponent.getChilds().values().stream();
         return childs.filter(p -> p.idEditUnit.type!=EditorialUnit.Article).collect(Collectors.toList());
     }
+
+    // Aditional methods for printing range.
 
     private ActComponent getFirstArticle(ActComponent actComponent){
         while(actComponent.idEditUnit.type !=EditorialUnit.Article)
             actComponent=actComponent.getFirstChild();
         return actComponent;
     }
+
     private ActComponent getLastArticle(ActComponent actComponent){
         while(actComponent.idEditUnit.type !=EditorialUnit.Article)
             actComponent=actComponent.getLastChild();

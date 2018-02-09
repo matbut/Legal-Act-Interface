@@ -1,8 +1,11 @@
-package agh.inf.polab;
+package agh.inf.polab.act.elements;
 
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
+/**
+ * Represents expresions to remove from text file
+ */
 public enum DeletedExpr {
     sejm,
     data,
@@ -30,6 +33,7 @@ public enum DeletedExpr {
                 return super.toString();
         }
     }
+
     public String findRegex(){ return removeRegex() ;}
 
     public static boolean is(String line){

@@ -1,5 +1,9 @@
 package agh.inf.polab;
 
+import agh.inf.polab.act.Act;
+import agh.inf.polab.act.ActInterface;
+import agh.inf.polab.act.ActParser;
+import agh.inf.polab.act.elements.IdentifiedEditorialUnit;
 import picocli.CommandLine;
 
 import java.io.FileNotFoundException;

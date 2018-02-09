@@ -1,11 +1,21 @@
-package agh.inf.polab;
+package agh.inf.polab.act.actInterface;
+
+import agh.inf.polab.act.elements.EditorialUnit;
+import agh.inf.polab.act.elements.IdentifiedEditorialUnit;
+import agh.inf.polab.act.Act;
+import agh.inf.polab.act.ActComponent;
 
 import java.util.*;
 
+/**
+ * Search Act looking for identified editorial unit
+ */
 public class Searcher extends Traversal{
     private ActComponent finded;
     private String actualpath="";
     private Queue<IdentifiedEditorialUnit> path;
+
+    //Public avaliable methods
 
     public Searcher(Act act) {
         super(act);
@@ -17,21 +27,27 @@ public class Searcher extends Traversal{
         return finded;
     }
 
+    public String getActualpath() {
+        return actualpath;
+    }
+
+    //Specyfying searching methods
+
     @Override
-    protected boolean stopTraverseRoot(ActComponent root) {
+    boolean stopTraverseRoot(ActComponent root) {
         return path.isEmpty();
     }
 
     @Override
-    protected void processRoot(ActComponent root) {
-        if(root.idEditUnit.type!=EditorialUnit.Root){
+    void processRoot(ActComponent root) {
+        if(root.idEditUnit.type!= EditorialUnit.Root){
             String lineSeparator=System.getProperty("line.separator");
             actualpath+=root.idEditUnit.type.toTabulation()+root.idEditUnit+lineSeparator;
         }
     }
 
     @Override
-    protected Collection<ActComponent> traversedChild(ActComponent actComponent) {
+    Collection<ActComponent> traversedChild(ActComponent actComponent) {
         finded=actComponent.getChilds().get(path.element()) ;
         if(finded==null)
             throw new NoSuchElementException("'"+path.element()+"' wasn't found in '"+actComponent.idEditUnit+"'.");
@@ -41,7 +57,5 @@ public class Searcher extends Traversal{
         return Collections.singleton(finded);
     }
 
-    public String getActualpath() {
-        return actualpath;
-    }
+
 }

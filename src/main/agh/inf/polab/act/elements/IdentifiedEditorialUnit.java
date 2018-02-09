@@ -1,12 +1,15 @@
-package agh.inf.polab;
+package agh.inf.polab.act.elements;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Reperesnts specyfic Editorial Unit - ediorial unit with id. E.g. Chapter IV, Article 5a
+ */
+
 public class IdentifiedEditorialUnit{
     public final EditorialUnit type;
     public final String id;
-
 
     public IdentifiedEditorialUnit(EditorialUnit type, String id) {
         this.type = type;
@@ -28,11 +31,11 @@ public class IdentifiedEditorialUnit{
         return type == that.type && id.equals(that.id);
     }
 
-
     @Override
     public int hashCode() {
         return id.hashCode();
     }
+
     public static boolean is(String line){
         for (EditorialUnit editUnit : EditorialUnit.values())
             if (Pattern.matches(editUnit.findRegex(),line))

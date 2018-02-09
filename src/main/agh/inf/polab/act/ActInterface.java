@@ -1,9 +1,17 @@
-package agh.inf.polab;
+package agh.inf.polab.act;
+
+import agh.inf.polab.act.elements.IdentifiedEditorialUnit;
+import agh.inf.polab.act.actInterface.PrinterContent;
+import agh.inf.polab.act.actInterface.PrinterTableOfContent;
+import agh.inf.polab.act.actInterface.Searcher;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 
+/**
+ * Collects all possible act actions
+ */
 public class ActInterface {
     private final Act act;
 
@@ -16,10 +24,12 @@ public class ActInterface {
         printerContent.add(actComponent);
         return printerContent.get();
     }
+
     public String printContent(){
         return printContent(act.getRoot());
     }
-    public String printContent(IdentifiedEditorialUnit startIdEditUnit,IdentifiedEditorialUnit endIdEditUnit){
+
+    public String printContent(IdentifiedEditorialUnit startIdEditUnit, IdentifiedEditorialUnit endIdEditUnit){
 
         Searcher searcher=new Searcher(act);
         searcher.search(act.getArticles(),Collections.singleton(startIdEditUnit));
@@ -44,6 +54,7 @@ public class ActInterface {
 
         return printerContent.get();
     }
+
     public String printContent(Collection<IdentifiedEditorialUnit> path){
 
 
@@ -61,9 +72,11 @@ public class ActInterface {
         printerTableOfContent.add(actComponent);
         return printerTableOfContent.get();
     }
+
     public String printTableOfContent(){
         return printTableOfContent(act.getRoot());
     }
+
     public String printTableOfContent(Collection<IdentifiedEditorialUnit> path){
         Searcher searcher = new Searcher(act);
         ActComponent actComponent=searcher.search(act.getRoot(),path);

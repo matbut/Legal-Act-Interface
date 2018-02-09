@@ -1,15 +1,23 @@
-package agh.inf.polab;
+package agh.inf.polab.act.actInterface;
+
+import agh.inf.polab.act.Act;
+import agh.inf.polab.act.ActComponent;
 
 import java.util.Collection;
 
+/**
+ * Act printer
+ */
 public abstract class Printer extends Traversal {
     private StringBuilder strBuilder;
-    protected String lineSeparator=System.getProperty("line.separator");
+    String lineSeparator=System.getProperty("line.separator");
 
-    public Printer(Act act){
+    Printer(Act act){
         super(act);
         strBuilder=new StringBuilder(printAct());
     }
+
+    //Public avaliable actions
 
     public void addText(String text){
         strBuilder.append(text);
@@ -18,23 +26,29 @@ public abstract class Printer extends Traversal {
     public void add(ActComponent actComponent){
         traverseComponent(actComponent);
     }
+
     public String get(){
         return strBuilder.toString();
     }
 
+    //Printer components
+
+    abstract String printAct();
+
+    abstract String printRoot(ActComponent actComponent);
+
     @Override
-    protected boolean stopTraverseRoot(ActComponent root) {
+    boolean stopTraverseRoot(ActComponent root) {
         return false;
     }
+
     @Override
-    protected void processRoot(ActComponent root) {
+    void processRoot(ActComponent root) {
         strBuilder.append(printRoot(root));
     }
+
     @Override
-    protected Collection<ActComponent> traversedChild(ActComponent actComponent) {
+    Collection<ActComponent> traversedChild(ActComponent actComponent) {
         return actComponent.getChilds().values();
     }
-
-    protected abstract String printAct();
-    protected abstract String printRoot(ActComponent actComponent);
 }
