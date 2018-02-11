@@ -1,5 +1,5 @@
 # Legal-Act-Interface
-Parses legal act text file to object form. 
+Parses legal act text file to object form. Facilitates searching for articles, passagges, points, etc. in legal acts.
 Works only for:
 - Polish Constitution (konstytucja.txt)
 - Poish Act on competition and consumer protection (uokik.txt)
